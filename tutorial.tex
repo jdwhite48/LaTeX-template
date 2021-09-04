@@ -1,0 +1,157 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Created By:     Jacob White
+%   Email:          white570@purdue.edu
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+\usepackage[fontsize=11pt]{scrextend}   % specify 11pt font
+
+%%% Common template packages (must come before macros.tex)
+\input{imports.tex}
+
+%%% Macros, environments, and other constructions
+\input{macros.tex}
+
+\title{Computer Science and Mathematics Tutorial}
+\author{Jacob White}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+By default, the first line is indented (i.e. \textbackslash{parindent} is enabled); But, if parskip default in \href{run:./imports.tex}{imports.tex} is not overriden, this will not be indented.
+This is on the same paragraph as the previous line. Newlines (\textbackslash \textbackslash) are necessary for regular lines.\\
+The line thereafter is non-indented regardless, however.\\
+This is a URL: \url{https://www.google.com}, and this is \href{https://www.google.com}{URL to Google}.\\
+This is non-indented text on the next line.\\
+\indent This is a manually-indented line.
+\par This is an indented paragraph on its own line, with spacing on both ends due to parskip
+\par\noindent This is a manually non-indented paragraph.
+\par This paragraph has more space after it (newlines are unnecessary). \\
+\par This is another paragraph.
+This text line is part of the previous paragraph.\\
+Put a \textbackslash\textbackslash or another \textbackslash{par} after a line in a multi-line paragraph to end the paragraph. 
+\par\noindent However, you also need newlines before new environments even if it's a paragraph...\\
+
+%\newpage
+\begin{problem} 
+    This is a problem. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. There is also some math in here: $a^2 + b^2 = c^2$.
+\end{problem}
+(An aside comment between problem and solution.)
+\begin{solution}
+    (solution environment starts with \textbackslash{par} to create indentation, and also ends page once done so each problem is on a separate line)
+    \par This is a preliminary discussion about the solution.
+    \begin{definition}
+        This is a definition.
+    \end{definition}
+    \begin{definition*}
+        This is an unnumbered definition.
+    \end{definition*}
+    \begin{definition}
+        This is a second definition.
+    \end{definition}
+    \begin{assumption}
+        This is an assumption for Problem \theproblem.
+    \end{assumption}
+    \begin{assumption*}
+        This is an unnumbered assumption.
+    \end{assumption*}
+    \begin{fact}
+        This is a (inherently unnumbered) fact.
+    \end{fact}
+    \begin{remark}
+        This is a (inherently unnumbered) remark.
+    \end{remark}
+    \begin{observation}
+        This is an (inherently unnumbered) observation.
+    \end{observation}
+    \begin{claim}
+        This is a (inherently unnumbered) claim.
+    \end{claim}
+    \begin{proposition}
+        This is a (inherently unnumbered) proposition.
+    \end{proposition}
+    \begin{theorem}\label{babys-first-theorem}
+        This is a theorem to assist in a solution for Problem \theproblem.
+    \end{theorem}
+    \begin{theoremproof}
+        This is a proof for Theorem \ref{babys-first-theorem}.
+    \end{theoremproof}
+    \begin{corollary} \label{babys-first-corollary}
+        This is a corollary for Theorem \ref{babys-first-theorem}.
+    \end{corollary}
+    \begin{corollaryproof}
+        This is a proof for Corollary \ref{babys-first-corollary}.
+    \end{corollaryproof}
+    \begin{corollary} 
+        This is another corollary for Theorem \ref{babys-first-theorem}.
+    \end{corollary}
+    \begin{lemma} \label{babys-first-lemma}
+        This is a lemma for theorem \ref{babys-first-theorem}.
+    \end{lemma}
+    \begin{lemmaproof}
+        This is a proof for Lemma \ref{babys-first-lemma}.
+    \end{lemmaproof}
+    
+    \begin{theorem}[The Everything Theorem]
+        This is a very special theorem.
+    \end{theorem}
+    \begin{proofsketch}
+        This is an informal idea and/or intuition for the proof.
+    \end{proofsketch}
+    \begin{proof}
+        This is a normal proof.
+    \end{proof}
+    \begin{corollary}[The Amazing Corollary]
+        This is an extra special corollary.
+    \end{corollary}
+    
+    \TODO{\hl{everything!}}
+    \TODO{\st{done!}}
+    \NOTE{This is a very useful note.}\\
+%    \textrm{test}
+%    \textmd{test}
+    Italics: \textit{test}\\
+    SC: \textsc{test}\\
+    SL: \textsl{test}\\
+%    \textssc{test}
+%    \textsw{test}
+    underline: \textul{test}\\
+    underline2: \underline{test}\\
+%    \textulc{test}
+%    \textup{test}
+    SF: \textsf{test}\\
+    Algorithm font: \algoname{Algorithm-Name}\\
+    String: \str{This is some string}\\
+    
+\end{solution}
+
+\begin{problem}[The Difficult Problem; 100 pts]
+    What is the answer to life, the universe, and everything?
+\end{problem}
+\begin{solution}
+    \begin{theorem*}
+        This is an unnumbered theorem.
+    \end{theorem*}
+    \begin{corollary*}
+        This is an unnumbered corollary.
+    \end{corollary*}
+    \begin{lemma*}
+        This is an unnumbered theorem.
+    \end{lemma*}
+    $$\str{bitstring} \in \bitset$$
+    $$\powerset{\set{0,1}} = \set{\set{}, \set{0}, \set{1}, \set{0,1}}$$
+    $$x \bigcdot y = z$$
+    $$\str{octal} \in \lset{0}{7}^*$$
+    $$\C = \cset{a + bi}{a,b \in \R}$$
+    $$\Zmod{p} = \cset{n \in \N}{n < p}$$
+    $\F$ is a generic field ans $\G$ is a generic group.\\
+    $$\nthroot{3}{27} = 3$$
+    $$\abs{-3} = 3$$
+    $$ A \qeq B$$
+    $$\Pr{c \in C \given m \in M \land c = \algoname{Encrypt}(m) }$$
+%    The world holds \wlog to everything. \Wrt the universe, this should make sense. Everything is \str{null}.
+\end{solution}
+
+\end{document}

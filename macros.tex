@@ -1,0 +1,131 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Created By:     Jacob White
+%   Email:          white570@purdue.edu
+%   Last Updated:   27 August 2021
+%
+%   Sources of inspiration:
+%       - Christina Garman's Practical & Applied Cryptography midterm template
+%       - Reed Oei's math homework template (https://github.com/ReedOei/LaTeX)
+%       - K A Gillow's University of Oxford, Mathematical Institute LaTeX Problem Sheet (https://www.maths.ox.ac.uk/members/it/faqs/latex/problem-sheets)
+%       - Sources for specific commands may be referenced inline.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{footnote}
+
+\usepackage{ifthen}
+\usepackage{xifthen}
+\usepackage{calc}
+
+\usepackage{xparse}
+
+% Change hyperref's colors for citations, reference, and URL links
+\hypersetup{            
+     colorlinks=true,
+     linkcolor=black,   % internal links (e.g. equation and theorem labels)
+     urlcolor=cyan,     % \hyperref and \url
+     filecolor=red,
+     citecolor=black,
+}
+
+%%% Change color of footnote links to black
+\renewcommand{\thefootnote}{\textcolor{black}{\arabic{footnote}}}
+
+%%% From: https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings#Automating_file_inclusion
+\newcommand{\includecode}[2][c]{\lstinputlisting[language=#1, caption=#2, basicstyle=\normalsize\ttfamily]{#2}}
+
+%%% Better paragraph indents
+%\setlength{\parskip}{0em}       % parskip import does this already -- adds spacing after paragraph "by about the length of a lowercase 'x'"
+\AtBeginDocument{\setlength{\parindent}{15pt}}     % Re-enable \parindent as default (equiv. spacing for 11pt) even if parskip imported
+
+%%% Math macros
+\newcommand     {\mathify}[1]{\ifmmode{#1}\else\mbox{$#1$}\fi}
+
+\newcommand     {\group}{\mathify{\mathbb{G}} }
+\newcommand     {\G}{\group}
+\newcommand     {\nat}{\mathify{\mathbb{N}} }
+\newcommand     {\N}{\nat}
+\newcommand     {\integer}{\mathify{\mathbb{Z}} }
+\newcommand     {\integers}{\integer}
+\newcommand     {\Z}{\integer}
+\newcommand     {\Zmod}[1]{\mathify{\Z_{#1}} }
+\newcommand     {\rat}{\mathify{\mathbb{Q}} }
+\newcommand     {\rational}{\rat}
+\newcommand     {\rationals}{\rat}
+\newcommand     {\Q}{\rat}
+\newcommand     {\real}{\mathify{\mathbb{R}} }
+\newcommand     {\reals}{\real}
+\newcommand     {\R}{\real}
+\newcommand     {\complex}{\mathify{\mathbb{C}} }
+\newcommand     {\C}{\complex}
+\newcommand     {\field}{\mathify{\mathbb{F}} }
+\newcommand     {\F}{\field}
+%\newcommand     {\ma}{\mathify{\mathcal{A}} }
+%\newcommand     {\mb}{\mathify{\mathcal{B}} }
+\newcommand     {\powerset}[1]{\mathify{\mathcal{P}(#1)} }
+% \renewcommand   {\implies}{ \longrightarrow }
+\newcommand     {\bigcdot}{\ensuremath{\Large\bullet} }
+\newcommand     {\qeq}{ \stackrel{?}{=} }
+\newcommand     {\approxtilde}{\raise.17ex\hbox{\mathify{\scriptstyle\sim}} }
+\newcommand     {\nthroot}[2]{\mathify{\sqrt[\leftroot{-1}\uproot{1}\scriptstyle #1]{#2}} }
+\newcommand     {\abs}[1]{\mathify{\left| #1 \right|} }
+\renewcommand   {\Pr}[1]{\mathify{\mbox{Pr}\left[#1\right]} }
+\newcommand     {\set}[1]{\mathify{\left\{ #1 \right\}} }
+\newcommand     {\cset}[2]{\set{#1 : #2}}  % a conditional notation to define sets
+\newcommand     {\lset}[2]{\set{#1,\ldots,#2} } % set {from,...,to}
+\newcommand     {\suchthat}{\mid}
+\newcommand     {\given}{\suchthat}
+\ifdefined\st\else\newcommand{\st}{\suchthat}\fi % Don't overload strikethrough macro if the document uses it
+
+%%% CS Macros
+\newcommand     {\true}{\textbf{\textsf{T}}}
+\newcommand     {\false}{\textbf{\textsf{F}}}
+\newcommand     {\bitset}{\mathify{\{0,1\}^*} }
+
+%%% Various theorem and problem and proof environments
+\newcounter{problem}
+\renewcommand{\theproblem}{\arabic{problem}}    
+\newenvironment{problem}[1][] { % Optionally include pts argument and make following text italics by default
+    \stepcounter{problem} \noindent \underline{\textbf{Problem \theproblem}}:
+    \ifx\newenvironment#1\newenvironment\else\space(#1)\fi \space\itshape 
+} {\\}
+
+\newenvironment{solution} {\par} {\newpage}
+
+%\renewenvironment{proof} {\vspace{0.5em} \noindent \underline{\textbf{Pf}}:} {\hfill \qedsymbol \vspace{0.5em}}      % Default proof, but with _*Pf:*_ instead
+\newenvironment{theoremproof} {\vspace{0.5em} \noindent \textit{Proof \thetheorem.}} {\hfill \qedsymbol \vspace{0.5em}}      % Default proof, numbered by theorem
+\newenvironment{corollaryproof} {\vspace{0.5em} \noindent \textit{Proof \thecorollary.}} {\hfill \qedsymbol \vspace{0.5em}}      % Default proof, numbered by corollary
+\newenvironment{lemmaproof} {\vspace{0.5em} \noindent \textit{Proof \thelemma.}} {\hfill \qedsymbol \vspace{0.5em}}      % Default proof, numbered by lemma
+\newenvironment{proofsketch} {\vspace{0.5em} \noindent \textit{Proof (Sketch).}} {\vspace{0.5em}}      % Default proof, but as an informal description
+
+\ifdefined\definition\else\newtheorem{definition}{Definition}\fi
+\newtheorem*{definition*}{Definition}
+\ifdefined\theorem\else\newtheorem{theorem}{Theorem}[problem]\fi
+\newtheorem*{theorem*}{Theorem}
+%%% TODO: How do I want to number assumptions? Is a separate counter sufficient?
+\ifdefined\assumption\else\newtheorem{assumption}{Assumption}[problem]\fi
+\newtheorem*{assumption*}{Assumption}
+\ifdefined\corollary\else\newtheorem{corollary}{Corollary}[theorem]\fi
+\newtheorem*{corollary*}{Corollary}
+\ifdefined\lemma\else\newtheorem{lemma}{Lemma}[theorem]\fi
+\newtheorem*{lemma*}{Lemma}
+\ifdefined\observation\else\newtheorem*{observation}{Observation}\fi
+\ifdefined\proposition\else\newtheorem*{proposition}{Proposition}\fi
+\ifdefined\claim\else\newtheorem*{claim}{Claim}\fi
+\ifdefined\fact\else\newtheorem*{fact}{Fact}\fi
+\ifdefined\remark\else\newtheorem*{remark}{Remark}\fi
+
+%%% Other shortcuts
+%%% TODO: allow a space to come after it without including it in the command...
+\newcommand     {\wrt}[0]{with respect to }
+\newcommand     {\Wrt}[0]{With respect to }
+%%% TODO: figure out why renewing wlog corrupts the PDF
+%\renewcommand   {\wlog}[0]{without loss of generality }
+\newcommand     {\Wlog}[0]{Without loss of generality }
+\newcommand     {\str}[1]{\ifmmode{\mathstrut\text{#1}}\else\mbox{\strut#1}\fi}
+\newcommand     {\algoname}[1]{\textsf{#1}}
+\newcommand     {\TODO}[1]{\paragraph{\underline{TODO:}} #1}
+\newcommand     {\NOTE}[1]{\paragraph{NOTE:} #1}
