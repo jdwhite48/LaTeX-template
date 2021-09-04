@@ -5,7 +5,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass{article}
-\usepackage[fontsize=11pt]{scrextend}   % specify 11pt font
+\usepackage[fontsize=12pt]{scrextend}   % specify 12pt font
+\usepackage[margin=1in]{geometry}     % specify 1in margins
 
 %%% Common template packages (must come before macros.tex)
 \input{imports.tex}
@@ -146,11 +147,18 @@ Put a \textbackslash\textbackslash or another \textbackslash{par} after a line i
     $$\str{octal} \in \lset{0}{7}^*$$
     $$\C = \cset{a + bi}{a,b \in \R}$$
     $$\Zmod{p} = \cset{n \in \N}{n < p}$$
-    $\F$ is a generic field ans $\G$ is a generic group.\\
+    $\F$ is a generic field and $\G$ is a generic group.\\
     $$\nthroot{3}{27} = 3$$
     $$\abs{-3} = 3$$
     $$ A \qeq B$$
     $$\Pr{c \in C \given m \in M \land c = \algoname{Encrypt}(m) }$$
+    If all instances in problem $A$ reduce to instances in problem $B$, then we say that $A \mapreducesto B$ and $B \mapreducesfrom A$.\\
+    Different notations for set complement: $\complement{S}$, $\setcomplement{U}{S}$, $\minuscomplement{U}{S}$\\
+    Language operations on strings of symbols in alphabet:
+    \begin{itemize}
+        \item Kleene star: $\kleenestar{A} = \cset{x_1 x_2 \ldots x_k}{k \geq 0 \land x_i \in A}$
+        \item Concatenation: $\concat{A}{B} = \cset{xy}{x \in A \land y \in B}$
+    \end{itemize}
 %    The world holds \wlog to everything. \Wrt the universe, this should make sense. Everything is \str{null}.
 \end{solution}
 
