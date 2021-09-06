@@ -20,7 +20,7 @@
 \usepackage{xifthen}
 \usepackage{calc}
 
-\usepackage{xparse}
+\usepackage{xspace}
 
 %%% Change hyperref's colors
 \hypersetup{            
@@ -44,51 +44,56 @@
 %%% Math macros
 \newcommand     {\mathify}[1]{\ifmmode{#1}\else\mbox{$#1$}\fi}
 
-\newcommand     {\group}{\mathify{\mathbb{G}} }
+\newcommand     {\group}{\mathify{\mathbb{G}}\xspace}
 \newcommand     {\G}{\group}
-\newcommand     {\nat}{\mathify{\mathbb{N}} }
+\newcommand     {\nat}{\mathify{\mathbb{N}}\xspace}
 \newcommand     {\N}{\nat}
-\newcommand     {\integer}{\mathify{\mathbb{Z}} }
+\newcommand     {\integer}{\mathify{\mathbb{Z}}\xspace}
 \newcommand     {\integers}{\integer}
 \newcommand     {\Z}{\integer}
-\newcommand     {\Zmod}[1]{\mathify{\Z_{#1}} }
-\newcommand     {\rat}{\mathify{\mathbb{Q}} }
+\newcommand     {\Zmod}[1]{\mathify{\Z_{#1}}\xspace}
+\newcommand     {\rat}{\mathify{\mathbb{Q}}\xspace}
 \newcommand     {\rational}{\rat}
 \newcommand     {\rationals}{\rat}
 \newcommand     {\Q}{\rat}
-\newcommand     {\real}{\mathify{\mathbb{R}} }
+\newcommand     {\real}{\mathify{\mathbb{R}}\xspace}
 \newcommand     {\reals}{\real}
 \newcommand     {\R}{\real}
-\newcommand     {\complex}{\mathify{\mathbb{C}} }
+\newcommand     {\complex}{\mathify{\mathbb{C}}\xspace}
 \newcommand     {\C}{\complex}
-\newcommand     {\field}{\mathify{\mathbb{F}} }
+\newcommand     {\field}{\mathify{\mathbb{F}}\xspace}
 \newcommand     {\F}{\field}
 %\newcommand     {\ma}{\mathify{\mathcal{A}} }
 %\newcommand     {\mb}{\mathify{\mathcal{B}} }
-\newcommand     {\powerset}[1]{\mathify{\mathcal{P}(#1)} }
+\newcommand     {\powerset}[1]{\mathify{\mathcal{P}(#1)}\xspace}
 % \renewcommand   {\implies}{ \longrightarrow }
-\newcommand     {\bigcdot}{\ensuremath{\bullet} }
-\newcommand     {\qeq}{ \stackrel{?}{=} }
-\newcommand     {\approxtilde}{\raise.17ex\hbox{\mathify{\scriptstyle\sim}} }
-\newcommand     {\nthroot}[2]{\mathify{\sqrt[\leftroot{-1}\uproot{1}\scriptstyle #1]{#2}} }
-\newcommand     {\abs}[1]{\mathify{\left| #1 \right|} }
-\renewcommand   {\Pr}[1]{\mathify{\mbox{Pr}\left[#1\right]} }
-\newcommand     {\set}[1]{\mathify{\left\{ #1 \right\}} }
-\newcommand     {\cset}[2]{\set{#1 : #2}}  % a conditional notation to define sets
-\newcommand     {\lset}[2]{\set{#1,\ldots,#2} } % set {from,...,to}
-\newcommand     {\suchthat}{\mid}
+%%% For whatever reason \mathify doesn't add spaces around sides in math mode
+\newcommand     {\bigcdot}{\ensuremath{\bullet}\xspace}
+\newcommand     {\qeq}{\stackrel{?}{=}}
+\newcommand     {\approxtilde}{\raise.17ex\hbox{\mathify{\scriptstyle\sim}}}
+\newcommand     {\nthroot}[2]{\mathify{\sqrt[\leftroot{-1}\uproot{1}\scriptstyle #1]{#2}}}
+\newcommand     {\abs}[1]{\mathify{\left| #1 \right|}}
+\renewcommand   {\Pr}[1]{\mathify{\mbox{Pr}\left[#1\right]}}
+\newcommand     {\set}[1]{\mathify{\left\{ #1 \right\}}\xspace}
+%%% Change to colon if you prefer that conditional notation over a vertical bar (\mid)
+%\newcommand {\suchthat}{\xspace:\xspace}
+\newcommand     {\suchthat}{\xspace\mid\xspace}
 \newcommand     {\given}{\suchthat}
-\ifdefined\st\else\newcommand{\st}{\suchthat}\fi % Don't overload strikethrough macro if the document uses it
+%%% Prevents overloading strikethrough macro if the document imports soul package
+\ifdefined\st\else\newcommand{\st}{\suchthat}\fi
+\newcommand     {\cset}[2]{\set{#1 \suchthat #2}}  % a conditional notation to define sets
+\newcommand     {\lset}[2]{\set{#1,\ldots,#2}} % set {from,...,to}
 \renewcommand   {\complement}[1]{\mathify{\overline{#1}}}
 \newcommand     {\setcomplement}[2]{\mathify{#1\setminus{#2}}}
 \newcommand     {\minuscomplement}[2]{\mathify{#1-#2}}
 
 %%% CS Macros
-\newcommand     {\true}{\textbf{\textsf{T}}}
-\newcommand     {\false}{\textbf{\textsf{F}}}
-\newcommand     {\bitset}{\mathify{\{0,1\}^*} }
+\newcommand     {\true}{\textbf{\textsf{T}}\xspace}
+\newcommand     {\false}{\textbf{\textsf{F}}\xspace}
+\newcommand     {\bitset}{\mathify{\{0,1\}^*}\xspace}
 \newcommand     {\mapreducesto}{\leq_m}
 \newcommand     {\mapreducesfrom}{\geq_m}
+\newcommand     {\yields}{\rightarrow_M}
 %%% From: https://tex.stackexchange.com/questions/41357/replace-cmtt10-char32-visible-cup-space-with-something-more-gentle/41445#41445
 \newcommand     {\blanksymbol}{%
   \ooalign{%
@@ -98,7 +103,7 @@
     \noalign{\vskip-.2ex}%
     \hphantom{~}\cr%   Width of a space character
     \vphantom{Xg}\cr%  Height of X, depth of g
-  }%
+  }\xspace%
 }
 \newcommand   {\concat}[2]{#1 \circ #2}
 \newcommand   {\kleenestar}[1]{{#1}^*}
@@ -106,13 +111,12 @@
 %%% Various theorem and problem and proof environments
 \newcounter{problem}
 \renewcommand{\theproblem}{\arabic{problem}}    
-\newenvironment{problem}[1][] { % Optionally include pts argument and make following text italics by default
+\newenvironment{problem}[1][] { % Optionally include descriptor and make following text italics by default
     \stepcounter{problem} \noindent \underline{\textbf{Problem \theproblem}}:
     \ifx\newenvironment#1\newenvironment\else\space(#1)\fi \space\itshape 
 } {\vspace{1em}}
 
 \newenvironment{solution} {\par} {\newpage}
-
 %\renewenvironment{proof} {\vspace{0.5em} \noindent \underline{\textbf{Pf}}:} {\hfill \qedsymbol \vspace{0.5em}}      % Default proof, but with _*Pf:*_ instead
 \newenvironment{theoremproof} {\vspace{0.5em} \noindent \textit{Proof \thetheorem.}} {\hfill \qedsymbol \vspace{0.5em}}      % Default proof, numbered by theorem
 \newenvironment{corollaryproof} {\vspace{0.5em} \noindent \textit{Proof \thecorollary.}} {\hfill \qedsymbol \vspace{0.5em}}      % Default proof, numbered by corollary
@@ -136,13 +140,12 @@
 \ifdefined\fact\else\newtheorem*{fact}{Fact}\fi
 \ifdefined\remark\else\newtheorem*{remark}{Remark}\fi
 
-%%% Other shortcuts
-%%% TODO: allow a space to come after it without including it in the command...
-\newcommand     {\wrt}[0]{with respect to }
-\newcommand     {\Wrt}[0]{With respect to }
-%%% TODO: figure out why renewing wlog corrupts the PDF
-%\renewcommand   {\wlog}[0]{without loss of generality }
-\newcommand     {\Wlog}[0]{Without loss of generality }
+%%% Text shortcuts
+\newcommand     {\wrt}{\xspace{with respect to}\xspace}
+\newcommand     {\Wrt}{\xspace{With respect to}\xspace}
+%%% NOTE: \wlog is a logging command and can't be redefined
+\newcommand     {\WLOG}{\xspace{without loss of generality}\xspace}
+\newcommand     {\Wlog}{\xspace{Without loss of generality}\xspace}
 \newcommand     {\str}[1]{\ifmmode{\mathstrut\text{#1}}\else\mbox{\strut#1}\fi}
 \newcommand     {\algoname}[1]{\textsf{#1}}
 \newcommand     {\TODO}[1]{\par \noindent \textbf{\underline{TODO:}}\space#1}

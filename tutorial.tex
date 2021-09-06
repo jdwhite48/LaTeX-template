@@ -27,12 +27,12 @@ The line thereafter is non-indented regardless, however.\\
 This is a URL: \url{https://www.google.com}, and this is \href{https://www.google.com}{URL to Google}.\\
 This is non-indented text on the next line.\\
 \indent This is a manually-indented line.
-\par This is an indented paragraph on its own line, with spacing on both ends due to parskip
+\par\indent This is a manually-indented paragraph on its own line, with spacing on both ends if importing parskip.
 \par\noindent This is a manually non-indented paragraph.
 \par This paragraph has more space after it (newlines are unnecessary). \\
 \par This is another paragraph.
 This text line is part of the previous paragraph.\\
-Put a \textbackslash\textbackslash or another \textbackslash{par} after a line in a multi-line paragraph to end the paragraph. 
+Put a \textbackslash\textbackslash\xspace or another \textbackslash{par} after a line in a multi-line paragraph to end the paragraph. 
 \par\noindent However, you also need newlines before new environments even if it's a paragraph...\\
 
 %\newpage
@@ -159,7 +159,13 @@ Put a \textbackslash\textbackslash or another \textbackslash{par} after a line i
         \item Kleene star: $\kleenestar{A} = \cset{x_1 x_2 \ldots x_k}{k \geq 0 \land x_i \in A}$
         \item Concatenation: $\concat{A}{B} = \cset{xy}{x \in A \land y \in B}$
     \end{itemize}
-%    The world holds \wlog to everything. \Wrt the universe, this should make sense. Everything is \str{null}.
+    %%% Most of the math macros that can conceivably be used standalone in text can also be written without being enclosed in math environment delimiters as well.
+    \par There are \approxtilde 7,000,000 humans in the world today. This statement is true (\true). (or maybe \false if you want to be precise...). 
+    \par \abs{-1} is 1 and \nthroot{3}{27} is 3. \Pr{0=1} is 0. The set \set{1} contains only 1, and \cset{x}{x \in A} has a condition associated with it. This \bigcdot is a bullet. \complement{S} is the collection of elements in the "universe" set $U$ that aren't also in $S \subseteq U$.
+    %%% Don't think too much about this, it's meaningless garbage. I was just too lazy to think of a proper math context to use these terms in.
+    \par The world holds \WLOG to everything. \Wrt the universe, this should make sense. \Wlog, everything is \str{null} \wrt our perception.
+    %%% This is all to show how \yields works
+    \par We can define a Turing Machine configuration using strings $u,v \in \Sigma^*$, symbol $a \in \Sigma$, and state $q \in Q$ as $uqav$, where the head of the Turing Machine resides at the symbol $a$ in the input tape $uav$. Furthermore, we say that a configuration yields another, written e.g. $uqav \yields ubrv$, if there exists a transition function $\delta(q, a) = (r, b, R)$ that takes the Turing Machine from one configuration to the other. In this example, the Turing Machine reads $a$, writes $b$, transitions from state $q$ to $r$, and moves the head right by one position to the first symbol in $v$. This \blanksymbol is a blank symbol used in Turing Machine tapes but not in the alphabet.
 \end{solution}
 
 \end{document}
