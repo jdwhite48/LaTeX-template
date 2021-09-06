@@ -58,6 +58,12 @@ Put a \textbackslash\textbackslash\xspace or another \textbackslash{par} after a
     \begin{assumption*}
         This is an unnumbered assumption.
     \end{assumption*}
+    \begin{claim}
+        This is a claim for Problem \theproblem.
+    \end{claim}
+    \begin{claim*}
+        This is an unnumbered claim.
+    \end{claim*}
     \begin{fact}
         This is a (inherently unnumbered) fact.
     \end{fact}
@@ -67,9 +73,6 @@ Put a \textbackslash\textbackslash\xspace or another \textbackslash{par} after a
     \begin{observation}
         This is an (inherently unnumbered) observation.
     \end{observation}
-    \begin{claim}
-        This is a (inherently unnumbered) claim.
-    \end{claim}
     \begin{proposition}
         This is a (inherently unnumbered) proposition.
     \end{proposition}
@@ -166,6 +169,7 @@ Put a \textbackslash\textbackslash\xspace or another \textbackslash{par} after a
     \par The world holds \WLOG to everything. \Wrt the universe, this should make sense. \Wlog, everything is \str{null} \wrt our perception.
     %%% This is all to show how \yields works
     \par We can define a Turing Machine configuration using strings $u,v \in \Sigma^*$, symbol $a \in \Sigma$, and state $q \in Q$ as $uqav$, where the head of the Turing Machine resides at the symbol $a$ in the input tape $uav$. Furthermore, we say that a configuration yields another, written e.g. $uqav \yields ubrv$, if there exists a transition function $\delta(q, a) = (r, b, R)$ that takes the Turing Machine from one configuration to the other. In this example, the Turing Machine reads $a$, writes $b$, transitions from state $q$ to $r$, and moves the head right by one position to the first symbol in $v$. This \blanksymbol is a blank symbol used in Turing Machine tapes but not in the alphabet.
+    \par This is an empty string: \emptystring, and this is a trivial grammar: $S \rightarrow \emptysymbol$.
 \end{solution}
 
 \end{document}
