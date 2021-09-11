@@ -41,7 +41,9 @@
 %\setlength{\parskip}{0em}       % parskip import does this already -- adds spacing after paragraph "by about the length of a lowercase 'x'"
 \AtBeginDocument{\setlength{\parindent}{15pt}}     % Re-enable \parindent as default (equiv. spacing for 11pt) even if parskip imported
 
-%%% Math macros
+%%%%%%%%%%%%%%%%%%%
+% Math macros     %
+%%%%%%%%%%%%%%%%%%%
 \newcommand     {\mathify}[1]{\ifmmode{#1}\else\mbox{$#1$}\fi}
 
 \newcommand     {\group}{\mathify{\mathbb{G}}\xspace}
@@ -69,7 +71,7 @@
 % \renewcommand   {\implies}{ \longrightarrow }
 %%% For whatever reason \mathify doesn't add spaces around sides in math mode
 \newcommand     {\bigcdot}{\ensuremath{\bullet}\xspace}
-\newcommand     {\qeq}{\stackrel{?}{=}}
+\newcommand     {\iseq}{\stackrel{?}{=}}
 \newcommand     {\approxtilde}{\raise.17ex\hbox{\mathify{\scriptstyle\sim}}}
 \newcommand     {\nthroot}[2]{\mathify{\sqrt[\leftroot{-1}\uproot{1}\scriptstyle #1]{#2}}}
 \newcommand     {\abs}[1]{\mathify{\left| #1 \right|}}
@@ -87,14 +89,19 @@
 \newcommand     {\setcomplement}[2]{\mathify{#1\setminus{#2}}}
 \newcommand     {\minuscomplement}[2]{\mathify{#1-#2}}
 
-%%% CS Macros
+%%%%%%%%%%%%%%%%%%%
+% CS Macros       %
+%%%%%%%%%%%%%%%%%%%
+%%% General
 \newcommand     {\true}{\textbf{\textsf{T}}\xspace}
 \newcommand     {\false}{\textbf{\textsf{F}}\xspace}
 \newcommand     {\bitset}{\mathify{\{0,1\}^*}\xspace}
+%%% Reducibility
 \newcommand     {\mapreducesto}{\leq_m}
 \newcommand     {\mapreducesfrom}{\geq_m}
+%%% Turing Machines
 \newcommand     {\yields}{\rightarrow_M}
-%%% From: https://tex.stackexchange.com/questions/41357/replace-cmtt10-char32-visible-cup-space-with-something-more-gentle/41445#41445
+\newcommand     {\yieldsto}[1][*]{\stackrel{#1}{\rightarrow}_M}
 \newcommand     {\blanksymbol}{%
   \ooalign{%
     \relax\cr%
@@ -105,12 +112,23 @@
     \vphantom{Xg}\cr%  Height of X, depth of g
   }\xspace%
 }
+%%% Grammars + Languages + Strings
+\newcommand   {\derives}{\rightarrow}
+\newcommand   {\derivesto}[1][*]{\stackrel{#1}{\rightarrow}}
+%%% From: https://tex.stackexchange.com/questions/41357/replace-cmtt10-char32-visible-cup-space-with-something-more-gentle/41445#41445
 \newcommand   {\emptystring}{\mathify{\epsilon}\xspace}
 \newcommand   {\emptysymbol}{\emptystring}
 \newcommand   {\concat}[2]{#1 \circ #2}
 \newcommand   {\kleenestar}[1]{{#1}^*}
+%%% Graphs
+\newcommand   {\pathto}{\rightsquigarrow}
+\newcommand   {\dirpath}{\pathto}
+\newcommand   {\undirpath}{\leftrightsquigarrow}
 
-%%% Various theorem and problem and proof environments
+
+%%%%%%%%%%%%%%%%%%%
+% Theorems etc.   %
+%%%%%%%%%%%%%%%%%%%
 \newcounter{problem}
 \renewcommand{\theproblem}{\arabic{problem}}    
 \newenvironment{problem}[1][] { % Optionally include descriptor and make following text italics by default
@@ -143,7 +161,9 @@
 \ifdefined\fact\else\newtheorem*{fact}{Fact}\fi
 \ifdefined\remark\else\newtheorem*{remark}{Remark}\fi
 
-%%% Text shortcuts
+%%%%%%%%%%%%%%%%%%%
+% Text shortcuts  %
+%%%%%%%%%%%%%%%%%%%
 \newcommand     {\wrt}{\xspace{with respect to}\xspace}
 \newcommand     {\Wrt}{\xspace{With respect to}\xspace}
 %%% NOTE: \wlog is a logging command and can't be redefined

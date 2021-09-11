@@ -153,7 +153,7 @@ Put a \textbackslash\textbackslash\xspace or another \textbackslash{par} after a
     $\F$ is a generic field and $\G$ is a generic group.\\
     $$\nthroot{3}{27} = 3$$
     $$\abs{-3} = 3$$
-    $$ A \qeq B$$
+    $$ A \iseq B$$
     $$\Pr{c \in C \given m \in M \land c = \algoname{Encrypt}(m) }$$
     If all instances in problem $A$ reduce to instances in problem $B$, then we say that $A \mapreducesto B$ and $B \mapreducesfrom A$.\\
     Different notations for set complement: $\complement{S}$, $\setcomplement{U}{S}$, $\minuscomplement{U}{S}$\\
@@ -169,7 +169,8 @@ Put a \textbackslash\textbackslash\xspace or another \textbackslash{par} after a
     \par The world holds \WLOG to everything. \Wrt the universe, this should make sense. \Wlog, everything is \str{null} \wrt our perception.
     %%% This is all to show how \yields works
     \par We can define a Turing Machine configuration using strings $u,v \in \Sigma^*$, symbol $a \in \Sigma$, and state $q \in Q$ as $uqav$, where the head of the Turing Machine resides at the symbol $a$ in the input tape $uav$. Furthermore, we say that a configuration yields another, written e.g. $uqav \yields ubrv$, if there exists a transition function $\delta(q, a) = (r, b, R)$ that takes the Turing Machine from one configuration to the other. In this example, the Turing Machine reads $a$, writes $b$, transitions from state $q$ to $r$, and moves the head right by one position to the first symbol in $v$. This \blanksymbol is a blank symbol used in Turing Machine tapes but not in the alphabet.
-    \par This is an empty string: \emptystring, and this is a trivial grammar: $S \rightarrow \emptysymbol$.
+    \par This is an empty string: \emptystring, and this is a trivial grammar: $S \derives \emptysymbol$. This is a string derivation using a grammar: $aS \derives abS \derives abc \equiv aS \derivesto abc$.
+    \par This is a directed path from a to b: $a \pathto b$ and this is an undirected path: $a \undirpath b$.
 \end{solution}
 
 \end{document}
