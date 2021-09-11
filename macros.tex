@@ -86,13 +86,15 @@
 \renewcommand   {\complement}[1]{\ensuremath{\overline{#1}}}
 \newcommand     {\setcomplement}[2]{\ensuremath{#1\setminus{#2}}}
 \newcommand     {\minuscomplement}[2]{\ensuremath{#1-#2}}
+\renewcommand   {\max}[1]{\ensuremath{\text{{\upshape{max}}}\,\{#1\}}\xspace}
+\renewcommand   {\min}[1]{\ensuremath{\text{{\upshape{min}}}\,\{#1\}}\xspace}
 
 %%%%%%%%%%%%%%%%%%%
 % CS Macros       %
 %%%%%%%%%%%%%%%%%%%
 %%% General
-\newcommand     {\true}{\textbf{\textsf{T}}\xspace}
-\newcommand     {\false}{\textbf{\textsf{F}}\xspace}
+\newcommand     {\true}{\textbf{\textsf{{\upshape{T}}}}\xspace}
+\newcommand     {\false}{\textbf{\textsf{{\upshape{F}}}}\xspace}
 \newcommand     {\bitset}{\ensuremath{\{0,1\}^*}\xspace}
 %%% Reducibility
 \newcommand     {\mapreducesto}{\leq_m}
