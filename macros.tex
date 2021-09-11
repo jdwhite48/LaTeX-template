@@ -44,39 +44,37 @@
 %%%%%%%%%%%%%%%%%%%
 % Math macros     %
 %%%%%%%%%%%%%%%%%%%
-\newcommand     {\mathify}[1]{\ifmmode{#1}\else\mbox{$#1$}\fi}
-
-\newcommand     {\group}{\mathify{\mathbb{G}}\xspace}
+\newcommand     {\group}{\ensuremath{\mathbb{G}}\xspace}
 \newcommand     {\G}{\group}
-\newcommand     {\nat}{\mathify{\mathbb{N}}\xspace}
+\newcommand     {\nat}{\ensuremath{\mathbb{N}}\xspace}
 \newcommand     {\N}{\nat}
-\newcommand     {\integer}{\mathify{\mathbb{Z}}\xspace}
+\newcommand     {\integer}{\ensuremath{\mathbb{Z}}\xspace}
 \newcommand     {\integers}{\integer}
 \newcommand     {\Z}{\integer}
-\newcommand     {\Zmod}[1]{\mathify{\Z_{#1}}\xspace}
-\newcommand     {\rat}{\mathify{\mathbb{Q}}\xspace}
+\newcommand     {\Zmod}[1]{\ensuremath{\Z_{#1}}\xspace}
+\newcommand     {\rat}{\ensuremath{\mathbb{Q}}\xspace}
 \newcommand     {\rational}{\rat}
 \newcommand     {\rationals}{\rat}
 \newcommand     {\Q}{\rat}
-\newcommand     {\real}{\mathify{\mathbb{R}}\xspace}
+\newcommand     {\real}{\ensuremath{\mathbb{R}}\xspace}
 \newcommand     {\reals}{\real}
 \newcommand     {\R}{\real}
-\newcommand     {\complex}{\mathify{\mathbb{C}}\xspace}
+\newcommand     {\complex}{\ensuremath{\mathbb{C}}\xspace}
 \newcommand     {\C}{\complex}
-\newcommand     {\field}{\mathify{\mathbb{F}}\xspace}
+\newcommand     {\field}{\ensuremath{\mathbb{F}}\xspace}
 \newcommand     {\F}{\field}
-%\newcommand     {\ma}{\mathify{\mathcal{A}} }
-%\newcommand     {\mb}{\mathify{\mathcal{B}} }
-\newcommand     {\powerset}[1]{\mathify{\mathcal{P}(#1)}\xspace}
+%\newcommand     {\ma}{\ensuremath{\mathcal{A}} }
+%\newcommand     {\mb}{\ensuremath{\mathcal{B}} }
+\newcommand     {\powerset}[1]{\ensuremath{\mathcal{P}(#1)}\xspace}
 % \renewcommand   {\implies}{ \longrightarrow }
-%%% For whatever reason \mathify doesn't add spaces around sides in math mode
+%%% For whatever reason \ensuremath doesn't add spaces around sides in math mode
 \newcommand     {\bigcdot}{\ensuremath{\bullet}\xspace}
 \newcommand     {\iseq}{\stackrel{?}{=}}
-\newcommand     {\approxtilde}{\raise.17ex\hbox{\mathify{\scriptstyle\sim}}}
-\newcommand     {\nthroot}[2]{\mathify{\sqrt[\leftroot{-1}\uproot{1}\scriptstyle #1]{#2}}}
-\newcommand     {\abs}[1]{\mathify{\left| #1 \right|}}
-\renewcommand   {\Pr}[1]{\mathify{\mbox{Pr}\left[#1\right]}}
-\newcommand     {\set}[1]{\mathify{\left\{ #1 \right\}}\xspace}
+\newcommand     {\approxtilde}{\raise.17ex\hbox{\ensuremath{\scriptstyle\sim}}}
+\newcommand     {\nthroot}[2]{\ensuremath{\sqrt[\leftroot{-1}\uproot{1}\scriptstyle #1]{#2}}}
+\newcommand     {\abs}[1]{\ensuremath{\left| #1 \right|}}
+\renewcommand   {\Pr}[1]{\ensuremath{\mbox{Pr}\left[#1\right]}}
+\newcommand     {\set}[1]{\ensuremath{\left\{ #1 \right\}}\xspace}
 %%% Change to colon if you prefer that conditional notation over a vertical bar (\mid)
 %\newcommand {\suchthat}{\xspace:\xspace}
 \newcommand     {\suchthat}{\xspace\mid\xspace}
@@ -85,9 +83,9 @@
 \ifdefined\st\else\newcommand{\st}{\suchthat}\fi
 \newcommand     {\cset}[2]{\set{#1 \suchthat #2}}  % a conditional notation to define sets
 \newcommand     {\lset}[2]{\set{#1,\ldots,#2}} % set {from,...,to}
-\renewcommand   {\complement}[1]{\mathify{\overline{#1}}}
-\newcommand     {\setcomplement}[2]{\mathify{#1\setminus{#2}}}
-\newcommand     {\minuscomplement}[2]{\mathify{#1-#2}}
+\renewcommand   {\complement}[1]{\ensuremath{\overline{#1}}}
+\newcommand     {\setcomplement}[2]{\ensuremath{#1\setminus{#2}}}
+\newcommand     {\minuscomplement}[2]{\ensuremath{#1-#2}}
 
 %%%%%%%%%%%%%%%%%%%
 % CS Macros       %
@@ -95,7 +93,7 @@
 %%% General
 \newcommand     {\true}{\textbf{\textsf{T}}\xspace}
 \newcommand     {\false}{\textbf{\textsf{F}}\xspace}
-\newcommand     {\bitset}{\mathify{\{0,1\}^*}\xspace}
+\newcommand     {\bitset}{\ensuremath{\{0,1\}^*}\xspace}
 %%% Reducibility
 \newcommand     {\mapreducesto}{\leq_m}
 \newcommand     {\mapreducesfrom}{\geq_m}
@@ -116,7 +114,7 @@
 \newcommand   {\derives}{\rightarrow}
 \newcommand   {\derivesto}[1][*]{\stackrel{#1}{\rightarrow}}
 %%% From: https://tex.stackexchange.com/questions/41357/replace-cmtt10-char32-visible-cup-space-with-something-more-gentle/41445#41445
-\newcommand   {\emptystring}{\mathify{\epsilon}\xspace}
+\newcommand   {\emptystring}{\ensuremath{\epsilon}\xspace}
 \newcommand   {\emptysymbol}{\emptystring}
 \newcommand   {\concat}[2]{#1 \circ #2}
 \newcommand   {\kleenestar}[1]{{#1}^*}
