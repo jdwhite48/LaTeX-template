@@ -44,16 +44,22 @@
 %%%%%%%%%%%%%%%%%%%
 % Math macros     %
 %%%%%%%%%%%%%%%%%%%
+
+%%% General Arithmetic
+\newcommand     {\nthroot}[2]{\ensuremath{\sqrt[\leftroot{-1}\uproot{1}\scriptstyle #1]{#2}}}
+\newcommand     {\abs}[1]{\ensuremath{\left| #1 \right|}}
+
+%%% Groups, Fields, and Rings
 \newcommand     {\group}{\ensuremath{\mathbb{G}}\xspace}
 \newcommand     {\G}{\group}
 \newcommand     {\nat}{\ensuremath{\mathbb{N}}\xspace}
+\newcommand     {\naturals}{\nat}
 \newcommand     {\N}{\nat}
-\newcommand     {\integer}{\ensuremath{\mathbb{Z}}\xspace}
-\newcommand     {\integers}{\integer}
-\newcommand     {\Z}{\integer}
+\newcommand     {\ints}{\ensuremath{\mathbb{Z}}\xspace}
+\newcommand     {\integers}{\int}
+\newcommand     {\Z}{\int}
 \newcommand     {\Zmod}[1]{\ensuremath{\Z_{#1}}\xspace}
 \newcommand     {\rat}{\ensuremath{\mathbb{Q}}\xspace}
-\newcommand     {\rational}{\rat}
 \newcommand     {\rationals}{\rat}
 \newcommand     {\Q}{\rat}
 \newcommand     {\real}{\ensuremath{\mathbb{R}}\xspace}
@@ -63,17 +69,11 @@
 \newcommand     {\C}{\complex}
 \newcommand     {\field}{\ensuremath{\mathbb{F}}\xspace}
 \newcommand     {\F}{\field}
-%\newcommand     {\ma}{\ensuremath{\mathcal{A}} }
-%\newcommand     {\mb}{\ensuremath{\mathcal{B}} }
+\newcommand     {\ring}{\ensuremath{\mathcal{R}}\xspace}
+\newcommand     {\rng}{\ring}
+
+%%% Set notation
 \newcommand     {\powerset}[1]{\ensuremath{\mathcal{P}(#1)}\xspace}
-% \renewcommand   {\implies}{ \longrightarrow }
-%%% For whatever reason \ensuremath doesn't add spaces around sides in math mode
-\newcommand     {\bigcdot}{\ensuremath{\bullet}\xspace}
-\newcommand     {\iseq}{\stackrel{?}{=}}
-\newcommand     {\approxtilde}{\raise.17ex\hbox{\ensuremath{\scriptstyle\sim}}}
-\newcommand     {\nthroot}[2]{\ensuremath{\sqrt[\leftroot{-1}\uproot{1}\scriptstyle #1]{#2}}}
-\newcommand     {\abs}[1]{\ensuremath{\left| #1 \right|}}
-\renewcommand   {\Pr}[1]{\ensuremath{\mbox{Pr}\left[#1\right]}}
 \newcommand     {\set}[1]{\ensuremath{\left\{ #1 \right\}}\xspace}
 %%% Change to colon if you prefer that conditional notation over a vertical bar (\mid)
 %\newcommand {\suchthat}{\xspace:\xspace}
@@ -86,8 +86,44 @@
 \renewcommand   {\complement}[1]{\ensuremath{\overline{#1}}}
 \newcommand     {\setcomplement}[2]{\ensuremath{#1\setminus{#2}}}
 \newcommand     {\minuscomplement}[2]{\ensuremath{#1-#2}}
+
+%%% Logic
+%\renewcommand   {\implies}{ \longrightarrow }
+
+%%% Custom functions
 \renewcommand   {\max}[1]{\ensuremath{\text{{\upshape{max}}}\,\{#1\}}\xspace}
 \renewcommand   {\min}[1]{\ensuremath{\text{{\upshape{min}}}\,\{#1\}}\xspace}
+
+%%% Custom operators
+\newcommand     {\bigcdot}{\ensuremath{\bullet}\xspace}
+
+%%% Custom equivalence Relations
+\renewcommand   {\approx}{\raise.17ex\hbox{\ensuremath{\scriptstyle\sim}}}
+
+%%% Relations-checking operators
+\newcommand     {\iseq}{\stackrel{?}{=}}
+\newcommand     {\isequiv}{\stackrel{?}{\equiv}}
+\newcommand     {\iscong}{\stackrel{?}{\cong}}
+\newcommand     {\isapprox}{\stackrel{?}{\approx}}
+\newcommand     {\issim}{\stackrel{?}{\isapprox}}
+\newcommand     {\issimeq}{\stackrel{?}{\simeq}}
+\newcommand     {\isdoteq}{\stackrel{?}{\doteq}}
+\newcommand     {\islt}{\stackrel{?}{<}}
+\newcommand     {\isgt}{\stackrel{?}{>}}
+\newcommand     {\isleq}{\stackrel{?}{\leq}}
+\newcommand     {\isgeq}{\stackrel{?}{\geq}}
+\newcommand     {\issubset}{\stackrel{?}{\subset}}
+\newcommand     {\issupset}{\stackrel{?}{\supset}}
+\newcommand     {\issubsetq}{\stackrel{?}{\subseteq}}
+\newcommand     {\issupsetq}{\stackrel{?}{\supseteq}}
+\newcommand     {\isprec}{\stackrel{?}{\prec}}
+\newcommand     {\ispreceq}{\stackrel{?}{\preceq}}
+\newcommand     {\issucc}{\stackrel{?}{\succ}}
+\newcommand     {\issucceq}{\stackrel{?}{\succeq}}
+\newcommand     {\ispropto}{\stackrel{?}{\propto}}
+
+%%% Statistics
+\renewcommand   {\Pr}[1]{\ensuremath{\mbox{Pr}\left[#1\right]}}
 
 %%%%%%%%%%%%%%%%%%%
 % CS Macros       %
