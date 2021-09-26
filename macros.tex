@@ -15,6 +15,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{footnote}
+\usepackage{enumitem}
 
 \usepackage{ifthen}
 \usepackage{xifthen}
@@ -24,12 +25,15 @@
 
 %%% Change hyperref's colors
 \hypersetup{            
-     colorlinks=true,
-     linkcolor=black,   % internal links (e.g. equation and theorem labels)
-     urlcolor=cyan,     % \hyperref and \url
-     filecolor=red,
-     citecolor=black,
+  colorlinks=true,
+  linkcolor=black,   % internal links (e.g. equation and theorem labels)
+  urlcolor=cyan,     % \hyperref and \url
+  filecolor=red,
+  citecolor=black,
 }
+
+%%% Author notes
+%\newcommand{\jw}[1]{\dtcolornote[JW]{cyan}{#1}}
 
 %%% Change color of footnote links to black
 \renewcommand{\thefootnote}{\textcolor{black}{\arabic{footnote}}}
@@ -52,7 +56,6 @@
 \newcommand     {\half}{\inverse{2}}
 \newcommand     {\third}{\inverse{3}}
 \newcommand     {\fourth}{\inverse{4}}
-
 %%% Groups, Fields, and Rings
 \newcommand     {\group}{\ensuremath{\mathbb{G}}\xspace}
 \newcommand     {\G}{\group}
@@ -75,7 +78,7 @@
 \newcommand     {\F}{\field}
 \newcommand     {\ring}{\ensuremath{\mathcal{R}}\xspace}
 \newcommand     {\rng}{\ring}
-
+\newcommand     {\inftypt}{\ensuremath{\mathcal{O}}\xspace}
 %%% Set notation
 \newcommand     {\powerset}[1]{\ensuremath{\mathcal{P}(#1)}\xspace}
 \newcommand     {\set}[1]{\ensuremath{\left\{ #1 \right\}}\xspace}
@@ -90,45 +93,39 @@
 \renewcommand   {\complement}[1]{\ensuremath{\overline{#1}}}
 \newcommand     {\setcomplement}[2]{\ensuremath{#1\setminus{#2}}}
 \newcommand     {\minuscomplement}[2]{\ensuremath{#1-#2}}
-
 %%% Logic
 %\renewcommand   {\implies}{ \longrightarrow }
-
 %%% Custom functions
-\renewcommand   {\max}[1]{\ensuremath{\text{{\upshape{max}}}\,\{#1\}}\xspace}
-\renewcommand   {\min}[1]{\ensuremath{\text{{\upshape{min}}}\,\{#1\}}\xspace}
-
+\renewcommand   {\max}[1]{\ensuremath{\text{{\upshape{max}}}\{#1\}}\xspace}
+\renewcommand   {\min}[1]{\ensuremath{\text{{\upshape{min}}}\{#1\}}\xspace}
 %%% Custom operators
 \newcommand     {\bigcdot}{\ensuremath{\bullet}\xspace}
-
 %%% Custom equivalence Relations
 \renewcommand   {\approx}{\raise.17ex\hbox{\ensuremath{\scriptstyle\sim}}}
-
+\renewcommand   {\gets}{\coloneqq}
 %%% Relations-checking operators
-\newcommand     {\iseq}{\stackrel{?}{=}}
-\newcommand     {\isequiv}{\stackrel{?}{\equiv}}
-\newcommand     {\iscong}{\stackrel{?}{\cong}}
-\newcommand     {\isapprox}{\stackrel{?}{\approx}}
-\newcommand     {\issim}{\stackrel{?}{\isapprox}}
-\newcommand     {\issimeq}{\stackrel{?}{\simeq}}
-\newcommand     {\isdoteq}{\stackrel{?}{\doteq}}
-\newcommand     {\islt}{\stackrel{?}{<}}
-\newcommand     {\isgt}{\stackrel{?}{>}}
-\newcommand     {\isleq}{\stackrel{?}{\leq}}
-\newcommand     {\isgeq}{\stackrel{?}{\geq}}
-\newcommand     {\issubset}{\stackrel{?}{\subset}}
-\newcommand     {\issupset}{\stackrel{?}{\supset}}
-\newcommand     {\issubsetq}{\stackrel{?}{\subseteq}}
-\newcommand     {\issupsetq}{\stackrel{?}{\supseteq}}
-\newcommand     {\isprec}{\stackrel{?}{\prec}}
-\newcommand     {\ispreceq}{\stackrel{?}{\preceq}}
-\newcommand     {\issucc}{\stackrel{?}{\succ}}
-\newcommand     {\issucceq}{\stackrel{?}{\succeq}}
-\newcommand     {\ispropto}{\stackrel{?}{\propto}}
-
+\newcommand     {\iseq}{\overset{?}{=}}
+\newcommand     {\isequiv}{\overset{?}{\equiv}}
+\newcommand     {\iscong}{\overset{?}{\cong}}
+\newcommand     {\isapprox}{\overset{?}{\approx}}
+\newcommand     {\issim}{\overset{?}{\isapprox}}
+\newcommand     {\issimeq}{\overset{?}{\simeq}}
+\newcommand     {\isdoteq}{\overset{?}{\doteq}}
+\newcommand     {\islt}{\overset{?}{<}}
+\newcommand     {\isgt}{\overset{?}{>}}
+\newcommand     {\isleq}{\overset{?}{\leq}}
+\newcommand     {\isgeq}{\overset{?}{\geq}}
+\newcommand     {\issubset}{\overset{?}{\subset}}
+\newcommand     {\issupset}{\overset{?}{\supset}}
+\newcommand     {\issubsetq}{\overset{?}{\subseteq}}
+\newcommand     {\issupsetq}{\overset{?}{\supseteq}}
+\newcommand     {\isprec}{\overset{?}{\prec}}
+\newcommand     {\ispreceq}{\overset{?}{\preceq}}
+\newcommand     {\issucc}{\overset{?}{\succ}}
+\newcommand     {\issucceq}{\overset{?}{\succeq}}
+\newcommand     {\ispropto}{\overset{?}{\propto}}
 %%% Statistics
 \renewcommand   {\Pr}[1]{\ensuremath{\mbox{Pr}\left[#1\right]}}
-
 %%% Calculus
 \newcommand     {\approaches}{\rightarrow}
 
@@ -136,15 +133,20 @@
 % CS Macros       %
 %%%%%%%%%%%%%%%%%%%
 %%% General
-\newcommand     {\true}{\textbf{\textsf{{\upshape{T}}}}\xspace}
-\newcommand     {\false}{\textbf{\textsf{{\upshape{F}}}}\xspace}
-\newcommand     {\bitset}{\ensuremath{\{0,1\}^*}\xspace}
+\newcommand     {\alg}[1]{\ensuremath{\mathsf{#1}}\xspace}
+\newcommand     {\var}[1]{\ensuremath{\mathsf{#1}}\xspace}
+\newcommand     {\true}{\var{T}}
+\newcommand     {\false}{\var{F}}
+\newcommand     {\boolset}{\set{\true,\false}}
+\newcommand     {\bitset}{\ensuremath{\set{0,1}*}\xspace}
 %%% Reducibility
 \newcommand     {\mapreducesto}{\leq_m}
 \newcommand     {\mapreducesfrom}{\geq_m}
+\newcommand     {\polyreducesto}{\leq_p}
+\newcommand     {\polyreducesfrom}{\geq_p}
 %%% Turing Machines
 \newcommand     {\yields}{\rightarrow_M}
-\newcommand     {\yieldsto}[1][*]{\stackrel{#1}{\rightarrow}_M}
+\newcommand     {\yieldsto}[1][*]{\overset{#1}{\rightarrow}_M}
 \newcommand     {\blanksymbol}{%
   \ooalign{%
     \relax\cr%
@@ -157,16 +159,28 @@
 }
 %%% Grammars + Languages + Strings
 \newcommand   {\derives}{\rightarrow}
-\newcommand   {\derivesto}[1][*]{\stackrel{#1}{\rightarrow}}
+\newcommand   {\derivesto}[1][*]{\overset{#1}{\rightarrow}}
 %%% From: https://tex.stackexchange.com/questions/41357/replace-cmtt10-char32-visible-cup-space-with-something-more-gentle/41445#41445
 \newcommand   {\emptystring}{\ensuremath{\epsilon}\xspace}
 \newcommand   {\emptysymbol}{\emptystring}
-\newcommand   {\concat}[2]{#1 \circ #2}
+\newcommand   {\langconcat}[2]{#1 \circ #2}
 \newcommand   {\kleenestar}[1]{{#1}^*}
+%%% Change to comma if you prefer that string concatenation over 2 vertical bars
+%\newcommand  {\strconcat}{\xspace\ensuremath{,}\xspace}
+\newcommand   {\strconcat}{\xspace\ensuremath{\Vert}\xspace}
+\newcommand   {\concat}{\strconcat}
 %%% Graphs
 \newcommand   {\pathto}{\rightsquigarrow}
 \newcommand   {\dirpath}{\pathto}
+\newcommand   {\dirpathto}{\pathto}
 \newcommand   {\undirpath}{\leftrightsquigarrow}
+\newcommand   {\undirpathto}{\undirpath}
+\newcommand   {\undirpathfrom}{\undirpath}
+%%% Cryptography
+\newcommand   {\secparam}{\ensuremath{\lambda}\xspace}
+\newcommand   {\crs}{\var{crs}}
+\newcommand   {\rel}[1]{\ensuremath{R_{\mathsf{#1}}}\xspace}
+\newcommand   {\com}{\var{com}}
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -207,12 +221,15 @@
 %%%%%%%%%%%%%%%%%%%
 % Text shortcuts  %
 %%%%%%%%%%%%%%%%%%%
+\renewcommand   {\th}{\textsuperscript{th}\xspace}
 \newcommand     {\wrt}{\xspace{with respect to}\xspace}
 \newcommand     {\Wrt}{\xspace{With respect to}\xspace}
 %%% NOTE: \wlog is a logging command and can't be redefined
 \newcommand     {\WLOG}{\xspace{without loss of generality}\xspace}
 \newcommand     {\Wlog}{\xspace{Without loss of generality}\xspace}
 \newcommand     {\str}[1]{\ifmmode{\mathstrut\text{#1}}\else\mbox{\strut#1}\fi}
-\newcommand     {\algoname}[1]{\textsf{#1}}
 \newcommand     {\TODO}[1]{\par \noindent \textbf{\underline{TODO:}}\space#1}
 \newcommand     {\NOTE}[1]{\par \noindent \textbf{NOTE:}\space#1}
+%%% Modifies enumerate* to use 1) 2) ...
+\renewlist{enumerate}{enumerate}{1}
+\setlist[enumerate]{label=\arabic*)}
