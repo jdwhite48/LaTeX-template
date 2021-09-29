@@ -4,12 +4,14 @@
 \usepackage{xcolor}     % color names
 \usepackage{graphicx}
 \usepackage{url}        % URLs
+\usepackage{silence}    % suppress errors
 \usepackage{hyperref}   % named URLs 
 \usepackage{enumitem}   % better enumerations
 \usepackage{multirow}   % multi-row math tables
 \usepackage{multicol}   % multi-column pages and math tables
 \usepackage{soul}       % strikethrough
 \usepackage{parskip}    % Use decent \parskip. Also disables \parindent as default (must manually specify)
+\usepackage{pgffor}
 %%% https://github.com/leisec/dtrt
 %%% Switch to camera,notes=false before submission
 %\usepackage[draft,notes=true]{packages/dtrt}
@@ -22,8 +24,11 @@
 \usepackage{mathtools}  % \coloneqq, ...
 \usepackage{bbm}
 \usepackage{mathpartir}
+\usepackage{tikz}
+\usetikzlibrary{graphs, calc, positioning}
 
 %%% CS packages
 \usepackage{ifthen}
 \usepackage{xifthen}
 \usepackage{listings}   % code
+\usepackage[ruled]{algorithm2e}

@@ -38,8 +38,16 @@
 %%% Change color of footnote links to black
 \renewcommand{\thefootnote}{\textcolor{black}{\arabic{footnote}}}
 
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
 %%% From: https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings#Automating_file_inclusion
-\newcommand{\includecode}[2][c]{\lstinputlisting[language=#1, caption=#2, basicstyle=\normalsize\ttfamily]{#2}}
+\newcommand{\includecode}[3][c]{\lstinputlisting[
+  language=#1,
+  caption=#2,
+  basicstyle=\normalsize\ttfamily,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
+]{#3}}
 
 %%% Better paragraph indents
 %\setlength{\parskip}{0em}       % parskip import does this already -- adds spacing after paragraph "by about the length of a lowercase 'x'"
@@ -63,8 +71,8 @@
 \newcommand     {\naturals}{\nat}
 \newcommand     {\N}{\nat}
 \newcommand     {\ints}{\ensuremath{\mathbb{Z}}\xspace}
-\newcommand     {\integers}{\int}
-\newcommand     {\Z}{\int}
+\newcommand     {\integers}{\ints}
+\newcommand     {\Z}{\ints}
 \newcommand     {\Zmod}[1]{\ensuremath{\Z_{#1}}\xspace}
 \newcommand     {\rat}{\ensuremath{\mathbb{Q}}\xspace}
 \newcommand     {\rationals}{\rat}
@@ -94,7 +102,10 @@
 \newcommand     {\setcomplement}[2]{\ensuremath{#1\setminus{#2}}}
 \newcommand     {\minuscomplement}[2]{\ensuremath{#1-#2}}
 %%% Logic
-%\renewcommand   {\implies}{ \longrightarrow }
+\newcommand     {\true}{\var{T}}
+\newcommand     {\false}{\var{F}}
+\newcommand     {\boolset}{\set{\true,\false}}
+\renewcommand   {\implies}{ \longrightarrow }
 %%% Custom functions
 \renewcommand   {\max}[1]{\ensuremath{\text{{\upshape{max}}}\{#1\}}\xspace}
 \renewcommand   {\min}[1]{\ensuremath{\text{{\upshape{min}}}\{#1\}}\xspace}
@@ -124,6 +135,8 @@
 \newcommand     {\issucc}{\overset{?}{\succ}}
 \newcommand     {\issucceq}{\overset{?}{\succeq}}
 \newcommand     {\ispropto}{\overset{?}{\propto}}
+\newcommand     {\isin}{\overset{?}{\in}}
+
 %%% Statistics
 \renewcommand   {\Pr}[1]{\ensuremath{\mbox{Pr}\left[#1\right]}}
 %%% Calculus
@@ -134,11 +147,13 @@
 %%%%%%%%%%%%%%%%%%%
 %%% General
 \newcommand     {\alg}[1]{\ensuremath{\mathsf{#1}}\xspace}
+\newcommand     {\cmd}[1]{\texttt{#1}\xspace}
 \newcommand     {\var}[1]{\ensuremath{\mathsf{#1}}\xspace}
-\newcommand     {\true}{\var{T}}
-\newcommand     {\false}{\var{F}}
-\newcommand     {\boolset}{\set{\true,\false}}
 \newcommand     {\bitset}{\ensuremath{\set{0,1}*}\xspace}
+\newcommand     {\peq}{\ensuremath{+=}\xspace}
+\newcommand     {\seq}{\ensuremath{-=}\xspace}
+\newcommand     {\meq}{\ensuremath{*=}\xspace}
+\newcommand     {\deq}{\ensuremath{/=}\xspace}
 %%% Reducibility
 \newcommand     {\mapreducesto}{\leq_m}
 \newcommand     {\mapreducesfrom}{\geq_m}
@@ -157,13 +172,14 @@
     \vphantom{Xg}\cr%  Height of X, depth of g
   }\xspace%
 }
+\newcommand{\desc}[1]{\ensuremath{\left\langle #1 \right\rangle}\xspace}
 %%% Grammars + Languages + Strings
 \newcommand   {\derives}{\rightarrow}
 \newcommand   {\derivesto}[1][*]{\overset{#1}{\rightarrow}}
 %%% From: https://tex.stackexchange.com/questions/41357/replace-cmtt10-char32-visible-cup-space-with-something-more-gentle/41445#41445
 \newcommand   {\emptystring}{\ensuremath{\epsilon}\xspace}
 \newcommand   {\emptysymbol}{\emptystring}
-\newcommand   {\langconcat}[2]{#1 \circ #2}
+\newcommand   {\langconcat}{\xspace\ensuremath{\circ}}
 \newcommand   {\kleenestar}[1]{{#1}^*}
 %%% Change to comma if you prefer that string concatenation over 2 vertical bars
 %\newcommand  {\strconcat}{\xspace\ensuremath{,}\xspace}
