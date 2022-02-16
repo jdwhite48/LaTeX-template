@@ -1,5 +1,6 @@
 %%% Formatting packages
 \usepackage[utf8]{inputenc}
+\usepackage{fontspec}
 \usepackage{footnote}
 \usepackage{xcolor}     % color names
 \usepackage{graphicx}
@@ -16,6 +17,10 @@
 %%% Switch to camera,notes=false before submission
 %\usepackage[draft,notes=true]{packages/dtrt}
 
+
+\usepackage[OT1]{fontenc}
+\usepackage{packages/boisik}   % Custom modification to just get me heta
+
 %%% Math packages
 \usepackage{amsmath}
 \usepackage{amssymb}    % \mathcal, \mathbb, etc.
@@ -23,8 +28,8 @@
 \usepackage{amsfonts}
 \usepackage{mathtools}  % \coloneqq, ...
 \usepackage{bbm}
-\usepackage{mathpartir}
-\usepackage{tikz}
+\usepackage{mathpartir} % Inference relations
+\usepackage{tikz}       % Graphs, diagrams, etc.
 \usetikzlibrary{graphs, calc, positioning}
 
 %%% CS packages
@@ -32,3 +37,7 @@
 \usepackage{xifthen}
 \usepackage{listings}   % code
 \usepackage[ruled]{algorithm2e}
+\usepackage{calc}
+
+\usepackage{float}
+\usepackage{xspace}

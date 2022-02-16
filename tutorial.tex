@@ -27,7 +27,7 @@ The line thereafter is non-indented regardless, however.\\
 This is a URL: \url{https://www.google.com}, and this is \href{https://www.google.com}{URL to Google}.\\
 This is non-indented text on the next line.\\
 \indent This is a manually-indented line.
-\par\indent This is a manually-indented paragraph on its own line, with spacing on both ends if importing parskip.
+\par\forceindent This is a manually-indented paragraph on its own line, with spacing on both ends if importing parskip.
 \par\noindent This is a manually non-indented paragraph.
 \par This paragraph has more space after it (newlines are unnecessary). \\
 \par This is another paragraph.
@@ -144,35 +144,75 @@ Put a \textbackslash\textbackslash\xspace or another \textbackslash{par} after a
     \begin{lemma*}
         This is an unnumbered theorem.
     \end{lemma*}
-    $$\str{bitstring} \in \bitset$$
+
+    $$\str{boolean} \in \boolset$$
+    $$\str{arbitrary bitstring} \in \bitsset$$
+    $$n\str{-bit bitstring} \in \bitsset[n]$$
     $$\powerset{\set{0,1}} = \set{\set{}, \set{0}, \set{1}, \set{0,1}}$$
     $$x \bigcdot y = z$$
     $$\str{octal} \in \lset{0}{7}^*$$
-    $$\C = \cset{a + bi}{a,b \in \R}$$
+    $$\complex = \cset{a + bi}{a,b \in \reals}$$
     $$\Zmod{p} = \cset{n \in \N}{n < p}$$
-    $\F$ is a generic field and $\G$ is a generic group.\\
+    $\field$ is a generic field and $\group$ is a generic group.\\
     $$\nthroot{3}{27} = 3$$
     $$\abs{-3} = 3$$
     $$ A \iseq B$$
-    $$\Pr{c \in C \given m \in M \land c = \alg{Encrypt}(m) }$$
-    If all instances in problem $A$ reduce to instances in problem $B$, then we say that $A \mapreducesto B$ and $B \mapreducesfrom A$.\\
-    Different notations for set complement: $\complement{S}$, $\setcomplement{U}{S}$, $\minuscomplement{U}{S}$\\
+    $$\Pr{[c \in C \given m \in M \land c = \alg{Encrypt}(m)]}$$
+
+    If all instances in problem $A$ reduce to instances in problem $B$, then we say that $A \mapreducesto B$. If it is also true that $B \mapreducesfrom A$, then these problems are equivalent; that is, $A \mapequiv B$. Similar for polynomial-time reductions $A \polyreducesto B$ and log-space reductions $A \logspacereducesto B$. \\
+
     Language operations on strings of symbols in alphabet:
     \begin{enumerate}
         \item Kleene star: $\kleenestar{A} = \cset{x_1 x_2 \ldots x_k}{k \geq 0 \land x_i \in A}$
         \item Concatenation: $A \langconcat B = \cset{xy}{x \in A \land y \in B}$. String concatenation can also be denoted by $x \strconcat y$.
     \end{enumerate}
+
     \par \secparam is the usual notation for the security parameter, and is often written in unary form as $1^\secparam$. The set of booleans is \boolset, alternatively written as \set{0,1}. In finite field arithmetic, the additive identity is often denoted by the "point at infinity" \inftypt. This is a common reference string \crs and this is a relation \rel{}.
+
     %%% Most of the math macros that can conceivably be used standalone in text can also be written without being enclosed in math environment delimiters as well.
     \par There are \approx 7,000,000 humans in the world today. This statement is true (\true). (or maybe \false depending on how precise you want to be...). I am \inverse{7{,}000{,}000} of the world's population. $\approx\half$ of the world's population is male.
-    \par \abs{-1} is 1 and \nthroot{3}{27} is 3. \Pr{0=1} is 0. The set \set{1} contains only 1, and \cset{x}{x \in A} has a condition associated with it. 5 is the 6\th number in \N. This \bigcdot is a bullet. \complement{S} is the collection of elements in the "universe" set $U$ that aren't also in $S \subseteq U$.
+    \par \abs{-1} is 1 and \nthroot{3}{27} is 3. $\Pr{[0=1]}$ is 0. The expected value is $\Exp{[1]} = 1$. The set \set{1} contains only 1, and \cset{x}{x \in A} has a condition associated with it. 5 is the 6\th number in \N. This \bigcdot is a bullet. \complement{S} is the collection of elements in the "universe" set $U$ that aren't also in $S \subseteq U$. Different notations for set complement: $\complement{S}$, $U \setminus S$, $U - S$\\
+    \par This is a transpose of a matrix $A$: $\transpose{A}$. This is a complex conjugate transpose: $\cctranspose{A}$.
     %%% Don't think too much about this, it's meaningless garbage. I was just too lazy to think of a proper math context to use these terms in.
     \par The world holds \WLOG to everything. \Wrt the universe, this should make sense. \Wlog, everything is \str{null} \wrt our perception.
+
     %%% This is all to show how \yields works
     \par We can define a Turing Machine configuration using strings $u,v \in \Sigma^*$, symbol $a \in \Sigma$, and state $q \in Q$ as $uqav$, where the head of the Turing Machine resides at the symbol $a$ in the input tape $uav$. Furthermore, we say that a configuration yields another, written e.g. $uqav \yields ubrv$, if there exists a transition function $\delta(q, a) = (r, b, R)$ that takes the Turing Machine from one configuration to the other. In this example, the Turing Machine reads $a$, writes $b$, transitions from state $q$ to $r$, and moves the head right by one position to the first symbol in $v$. This \blanksymbol is a blank symbol used in Turing Machine tapes but not in the alphabet.
-    \par This is an empty string: \emptystring, and this is a trivial grammar: $S \derives \emptysymbol$. This is a string derivation using a grammar: $aS \derives abS \derives abc \equiv aS \derivesto abc$.
-    \par This is a directed path from $a$ to $b$: $a \pathto b$ and this is an undirected path: $a \undirpathto b$.
-    \par The maximum and minimum of 2 and 3 is $\max{2,3} = 3$ and $\min{2,3} = 2$.
+    \par This is an empty string: \emptystring, and this is a trivial grammar: $S \derives \emptysymbol$. This is a string derivation using a grammar: $aS \derives abS \derives abc \equiv aS \derivesto abc$. This is a partial reduction from $A$ to $B$: $A \partreducesto B$. This is an evaluation of expression $e$ to value $v$ in some state \state: $\state, e \evaluatesto v$. This is heta, representing the state of the heap: \heap. "$\Gamma \assumedby A$" reads as "assuming proposition(s) in $\Gamma$ are true, $A$ is true".
+    This is an inference rule:
+    
+    \begin{mathpar}
+        \inferrule* [rightstyle=\sf, Right=EWrite]
+            { (\heap, \state, \locmap), e_1 \evaluatesto v_1 \\ (\heap, \state, \locmap), e_2 \evaluatesto v_2 }
+            {  (\heap, \state, \locmap), *[e_1] \gets e_2 \evaluatesto ([v_1 \mapsto v_2]\, \heap, \state, \locmap) }
+    \end{mathpar}
+
+    This is a proof tree:
+
+    \begin{mathpar}
+        \inferrule* [rightstyle=\sf, Right=EAdd] {
+            \inferrule* [rightstyle=\sf, Right=ESub, rightskip=-1em] {
+                \inferrule* [rightstyle=\sf, Right=ENum, rightskip=-1em] { } { \state, 5 \evaluatesto 5 } \\
+                \inferrule* [rightstyle=\sf, Right=ENum, leftskip=-1em] { } { \state, 2 \evaluatesto 2 }
+            }
+            { \state, 5 - 2 \evaluatesto 5 -_\nat 2 } \\
+            \inferrule* [rightstyle=\sf, Right=ENum, leftskip=-1em] { } { \state, 3 \evaluatesto 3 }
+        }
+        { \sigma, 5 - 2 + 3 \evaluatesto 5 -_\nat 2 +_\nat 3 }
+    \end{mathpar}
+    
+    This is syntax:
+    \begin{align*}
+        A &\syntaxeq N\\
+        &\mid A + A\\
+        &\mid A - A\\
+        &\mid X\\
+        X &\in \mathsf{Id}\\
+        N &\in \nat
+    \end{align*}
+    
+
+    \par This is a directed path from $a$ to $b$: $a \pathto b$ and this is an undirected path: $a \undirpathto b$. This is a walk from $a$ to $b$: $a \walkto b$.
 \end{solution}
 
 \end{document}
