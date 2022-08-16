@@ -1,7 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Created By:     Jacob White
 %   Email:          white570@purdue.edu
-%   Last Updated:   27 August 2021
 %
 %   Sources of inspiration:
 %       - Christina Garman's Practical & Applied Cryptography midterm template
@@ -24,7 +23,7 @@
 %\newcommand{\jw}[1]{\dtcolornote[JW]{cyan}{#1}}
 
 %%% Change color of footnote links to black
-\renewcommand{\thefootnote}{\textcolor{black}{\arabic{footnote}}}
+%\renewcommand{\thefootnote}{\textcolor{black}{\arabic{footnote}}}
 
 \newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
 \SetCommentSty{mycommfont}
@@ -47,90 +46,103 @@
 %%%%%%%%%%%%%%%%%%%
 
 %%% General Arithmetic
-\newcommand     {\nthroot}[2]{\ensuremath{\sqrt[\leftroot{-1}\uproot{1}\scriptstyle #1]{#2}}}
-\newcommand     {\abs}[1]{\ensuremath{\left| #1 \right|}}
-\newcommand     {\inverse}[1]{\ensuremath{\frac{1}{#1}}\xspace}
-\newcommand     {\half}{\inverse{2}}
-\newcommand     {\third}{\inverse{3}}
-\newcommand     {\fourth}{\inverse{4}}
-\newcommand     {\ceil}[1]{\left\lceil #1 \right\rceil}
-\newcommand     {\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\nthroot}[2]{\ensuremath{\sqrt[\leftroot{-1}\uproot{1}\scriptstyle #1]{#2}}}
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+\newcommand{\inverse}[1]{\ensuremath{\frac{1}{#1}}\xspace}
+\newcommand{\half}{\inverse{2}}
+\newcommand{\third}{\inverse{3}}
+\newcommand{\fourth}{\inverse{4}}
+%\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+%\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+
+
 %%% Matrices
-\newcommand     {\transpose}[1]{\ensuremath{{#1}^\intercal}\xspace}
-\newcommand     {\trans}[1]{\transpose{#1}}
+\newcommand{\transpose}[1]{\ensuremath{{#1}^\intercal}\xspace}
+\newcommand{\trans}[1]{\transpose{#1}}
 %%% Complex Conjugate transpose -- ^* or ^H for Linear Algebra, dagger for quantum mechanics
-\newcommand     {\cctranspose}[1]{\ensuremath{{#1}^*}\xspace}
+\newcommand{\cctranspose}[1]{\ensuremath{{#1}^*}\xspace}
 %\newcommand     {\cctranspose}[1]{\ensuremath{{#1}^H}\xspace}
 %\newcommand     {\cctranspose}[1]{\ensuremath{{#1}^\dagger}\xspace}
-\newcommand     {\cctrans}[1]{\cctranspose{#1}}
+\newcommand{\cctrans}[1]{\cctranspose{#1}}
+
+
 %%% Groups, Fields, and Rings
-\newcommand     {\group}{\ensuremath{\mathbb{G}}\xspace}
+\newcommand{\group}{\ensuremath{\mathbb{G}}\xspace}
 %\newcommand     {\G}{\group}
-\newcommand     {\nat}{\ensuremath{\mathbb{N}}\xspace}
-\newcommand     {\naturals}{\nat}
-\newcommand     {\N}{\nat}
-\newcommand     {\ints}{\ensuremath{\mathbb{Z}}\xspace}
-\newcommand     {\integers}{\ints}
-\newcommand     {\Z}{\ints}
-\newcommand     {\Zmod}[1]{\ensuremath{\Z_{#1}}\xspace}
-\newcommand     {\rat}{\ensuremath{\mathbb{Q}}\xspace}
-\newcommand     {\rationals}{\rat}
-\newcommand     {\Q}{\rat}
-\newcommand     {\real}{\ensuremath{\mathbb{R}}\xspace}
-\newcommand     {\reals}{\real}
-%\newcommand     {\R}{\real}
-\newcommand     {\complex}{\ensuremath{\mathbb{C}}\xspace}
-%\newcommand     {\C}{\complex}
-\newcommand     {\field}{\ensuremath{\mathbb{F}}\xspace}
-%\newcommand     {\F}{\field}
-\newcommand     {\ring}{\ensuremath{\mathcal{R}}\xspace}
-\newcommand     {\rng}{\ring}
-\newcommand     {\inftypt}{\ensuremath{\mathcal{O}}\xspace}
+\newcommand{\nat}{\ensuremath{\mathbb{N}}\xspace}
+\newcommand{\naturals}{\nat}
+\newcommand{\N}{\nat}
+
+\newcommand{\ints}{\ensuremath{\mathbb{Z}}\xspace}
+\newcommand{\integers}{\ints}
+\newcommand{\Z}{\ints}
+\newcommand{\Zmod}[1]{\ensuremath{\Z_{#1}}\xspace}
+
+\newcommand{\rat}{\ensuremath{\mathbb{Q}}\xspace}
+\newcommand{\rationals}{\rat}
+\newcommand{\Q}{\rat}
+
+\newcommand{\real}{\ensuremath{\mathbb{R}}\xspace}
+\newcommand{\reals}{\real}
+%\newcommand{\R}{\real}
+
+\newcommand{\complex}{\ensuremath{\mathbb{C}}\xspace}
+%\newcommand{\C}{\complex}
+
+\newcommand{\field}{\ensuremath{\mathbb{F}}\xspace}
+%\newcommand{\F}{\field}
+\newcommand{\ring}{\ensuremath{\mathcal{R}}\xspace}
+\newcommand{\rng}{\ring}
+
+\newcommand{\inftypt}{\ensuremath{\mathcal{O}}\xspace}
+
+
 %%% Set notation
-\newcommand     {\powerset}[1]{\ensuremath{\mathcal{P}(#1)}\xspace}
-\newcommand     {\set}[1]{\ensuremath{\left\{ #1 \right\}}\xspace}
+\newcommand{\powerset}[1]{\ensuremath{\mathcal{P}(#1)}\xspace}
+\newcommand{\set}[1]{\ensuremath{\left\{ #1 \right\}}\xspace}
 %%% NOTE: Change if you prefer colon or vertical bar (\mid) for suchthat
-\newcommand {\suchthat}{\xspace:\xspace}
-%\newcommand     {\suchthat}{\xspace\mid\xspace}
-\newcommand     {\given}{\suchthat}
+\newcommand{\suchthat}{\xspace:\xspace}
+%\newcommand{\suchthat}{\xspace\mid\xspace}
+\newcommand{\given}{\suchthat}
 %%% Prevents overloading strikethrough macro if the document imports soul package
 \ifdefined\st\else\newcommand{\st}{\suchthat}\fi
-\newcommand     {\cset}[2]{\set{#1 \suchthat #2}}  % a conditional notation to define sets
-\newcommand     {\lset}[2]{\set{#1,\ldots,#2}} % set {from,...,to}
-\renewcommand   {\complement}[1]{\ensuremath{\overline{#1}}}
+\newcommand{\cset}[2]{\set{#1 \suchthat #2}}  % a conditional notation to define sets
+\newcommand{\lset}[2]{\set{#1,\ldots,#2}} % set {from,...,to}
+\renewcommand{\complement}[1]{\ensuremath{\overline{#1}}}
 %%% Logic
-\newcommand     {\true}{\var{T}}
-\newcommand     {\false}{\var{F}}
-\newcommand     {\boolset}{\set{\true,\false}}
-\renewcommand   {\implies}{ \longrightarrow }
+\newcommand{\true}{\var{T}}
+\newcommand{\false}{\var{F}}
+\newcommand{\boolset}{\set{\true,\false}}
+\renewcommand{\implies}{ \longrightarrow }
 %%% Custom functions
 
 %%% Custom operators
-\newcommand     {\bigcdot}{\ensuremath{\bullet}\xspace}
+\newcommand{\bigcdot}{\ensuremath{\bullet}\xspace}
 %%% Custom equivalence Relations
-\renewcommand   {\approx}{\raise.17ex\hbox{\ensuremath{\scriptstyle\sim}}}
+\renewcommand{\approx}{\raise.17ex\hbox{\ensuremath{\scriptstyle\sim}}}
 %%% Relations-checking operators
-\newcommand     {\iseq}{\overset{?}{=}}
-\newcommand     {\isequiv}{\overset{?}{\equiv}}
-\newcommand     {\iscong}{\overset{?}{\cong}}
-\newcommand     {\isapprox}{\overset{?}{\approx}}
-\newcommand     {\issim}{\overset{?}{\isapprox}}
-\newcommand     {\issimeq}{\overset{?}{\simeq}}
-\newcommand     {\isdoteq}{\overset{?}{\doteq}}
-\newcommand     {\islt}{\overset{?}{<}}
-\newcommand     {\isgt}{\overset{?}{>}}
-\newcommand     {\isleq}{\overset{?}{\leq}}
-\newcommand     {\isgeq}{\overset{?}{\geq}}
-\newcommand     {\issubset}{\overset{?}{\subset}}
-\newcommand     {\issupset}{\overset{?}{\supset}}
-\newcommand     {\issubsetq}{\overset{?}{\subseteq}}
-\newcommand     {\issupsetq}{\overset{?}{\supseteq}}
-\newcommand     {\isprec}{\overset{?}{\prec}}
-\newcommand     {\ispreceq}{\overset{?}{\preceq}}
-\newcommand     {\issucc}{\overset{?}{\succ}}
-\newcommand     {\issucceq}{\overset{?}{\succeq}}
-\newcommand     {\ispropto}{\overset{?}{\propto}}
-\newcommand     {\isin}{\overset{?}{\in}}
+\newcommand{\iseq}{\overset{?}{=}}
+\newcommand{\isequiv}{\overset{?}{\equiv}}
+\newcommand{\iscong}{\overset{?}{\cong}}
+\newcommand{\isapprox}{\overset{?}{\approx}}
+\newcommand{\issim}{\overset{?}{\isapprox}}
+\newcommand{\issimeq}{\overset{?}{\simeq}}
+\newcommand{\isdoteq}{\overset{?}{\doteq}}
+\newcommand{\islt}{\overset{?}{<}}
+\newcommand{\isgt}{\overset{?}{>}}
+\newcommand{\isleq}{\overset{?}{\leq}}
+\newcommand{\isgeq}{\overset{?}{\geq}}
+\newcommand{\issubset}{\overset{?}{\subset}}
+\newcommand{\issupset}{\overset{?}{\supset}}
+\newcommand{\issubsetq}{\overset{?}{\subseteq}}
+\newcommand{\issupsetq}{\overset{?}{\supseteq}}
+\newcommand{\isprec}{\overset{?}{\prec}}
+\newcommand{\ispreceq}{\overset{?}{\preceq}}
+\newcommand{\issucc}{\overset{?}{\succ}}
+\newcommand{\issucceq}{\overset{?}{\succeq}}
+\newcommand{\ispropto}{\overset{?}{\propto}}
+\newcommand{\isin}{\overset{?}{\in}}
+
 
 %%% Statistics
 %\renewcommand   {\Pr}[1]{\ensuremath{\mbox{Pr}\left[#1\right]}}
@@ -138,38 +150,38 @@
 %\DeclareMathOperator*{\Exp}{\ensuremath{E}}
 \DeclareMathOperator*{\Exp}{\ensuremath{\mathbb{E}}}
 %%% Calculus
-\newcommand     {\approaches}{\rightarrow}
+\newcommand{\approaches}{\rightarrow}
 
 %%%%%%%%%%%%%%%%%%%
 % CS Macros       %
 %%%%%%%%%%%%%%%%%%%
 %%% General
-\newcommand     {\alg}[1]{\ensuremath{\mathsf{#1}}\xspace}
-\newcommand     {\cmd}[1]{\texttt{#1}\xspace}
-\newcommand     {\var}[1]{\ensuremath{\mathsf{#1}}\xspace}
-\newcommand     {\bitset}{\set{0,1}}
-\newcommand     {\bitsset}[1][*]{\ensuremath{\bitset^{#1}}\xspace}
-\newcommand     {\addeq}{\ensuremath{+=}\xspace}
-\newcommand     {\subeq}{\ensuremath{-=}\xspace}
-\newcommand     {\muleq}{\ensuremath{*=}\xspace}
-\newcommand     {\diveq}{\ensuremath{/=}\xspace}
-\renewcommand   {\gets}{\coloneqq}
-\newcommand     {\assigneq}{\gets}
+\newcommand{\alg}[1]{\ensuremath{\mathsf{#1}}\xspace}
+\newcommand{\cmd}[1]{\texttt{#1}\xspace}
+\newcommand{\var}[1]{\ensuremath{\mathsf{#1}}\xspace}
+\newcommand{\bitset}{\set{0,1}}
+\newcommand{\bitsset}[1][*]{\ensuremath{\bitset^{#1}}\xspace}
+\newcommand{\addeq}{\ensuremath{+=}\xspace}
+\newcommand{\subeq}{\ensuremath{-=}\xspace}
+\newcommand{\muleq}{\ensuremath{*=}\xspace}
+\newcommand{\diveq}{\ensuremath{/=}\xspace}
+\renewcommand{\gets}{\coloneqq}
+\newcommand{\assigneq}{\gets}
 
 %%% Complexity Theory
-\newcommand     {\mapreducesto}{\leq_m}
-\newcommand     {\mapreducesfrom}{\geq_m}
-\newcommand     {\mapequiv}{\equiv_m}
-\newcommand     {\polyreducesto}{\leq_P}
-\newcommand     {\polyreducesfrom}{\geq_P}
-\newcommand     {\polyequiv}{\equiv_P}
-\newcommand     {\logspacereducesto}{\leq_L}
-\newcommand     {\logspacereducesfrom}{\geq_L}
-\newcommand     {\logspaceequiv}{\equiv_L}
+\newcommand{\mapreducesto}{\leq_m}
+\newcommand{\mapreducesfrom}{\geq_m}
+\newcommand{\mapequiv}{\equiv_m}
+\newcommand{\polyreducesto}{\leq_P}
+\newcommand{\polyreducesfrom}{\geq_P}
+\newcommand{\polyequiv}{\equiv_P}
+\newcommand{\logspacereducesto}{\leq_L}
+\newcommand{\logspacereducesfrom}{\geq_L}
+\newcommand{\logspaceequiv}{\equiv_L}
 %%% Computation theory
-\newcommand     {\yields}{\rightarrow_M}
-\newcommand     {\yieldsto}[1][*]{\overset{#1}{\rightarrow}_M}
-\newcommand     {\blanksymbol}{\ensuremath{%
+\newcommand{\yields}{\rightarrow_M}
+\newcommand{\yieldsto}[1][*]{\overset{#1}{\rightarrow}_M}
+\newcommand{\blanksymbol}{\ensuremath{%
   \ooalign{%
     \relax\cr%
     \noalign{\vskip.2ex}%
@@ -181,43 +193,43 @@
 }
 \newcommand{\desc}[1]{\ensuremath{\left\langle #1 \right\rangle}\xspace}
 %%% Formal Syntax + Grammars + Languages
-\newcommand     {\derives}{\ensuremath{\mathrel{\rightarrow}}}
-\newcommand     {\reduces}{\derives}
-\newcommand     {\derivesto}[1][*]{\ensuremath{\mathrel{\overset{#1}{\rightarrow}}}}
-\newcommand     {\reducesto}{\derivesto}
-\newcommand     {\partreducesto}{\rightharpoonup}
-\newcommand     {\evaluatesto}{\ensuremath{\mathrel{\Downarrow}}}
-\newcommand     {\subtypeof}{\ensuremath{\!\mathrel{<:}\!}}
-\newcommand     {\assumedby}{\vdash}
-\newcommand     {\syntaxeq}{\ensuremath{\,\mathrel{::=}\;}}
-\newcommand     {\state}{\ensuremath{\sigma}}
-\newcommand     {\heap}{\ensuremath{\heta}}
-\newcommand     {\locmap}{\ensuremath{\zeta}}
+\newcommand{\derives}{\ensuremath{\mathrel{\rightarrow}}}
+\newcommand{\reduces}{\derives}
+\newcommand{\derivesto}[1][*]{\ensuremath{\mathrel{\overset{#1}{\rightarrow}}}}
+\newcommand{\reducesto}{\derivesto}
+\newcommand{\partreducesto}{\rightharpoonup}
+\newcommand{\evaluatesto}{\ensuremath{\mathrel{\Downarrow}}}
+\newcommand{\subtypeof}{\ensuremath{\!\mathrel{<:}\!}}
+\newcommand{\assumedby}{\vdash}
+\newcommand{\syntaxeq}{\ensuremath{\,\mathrel{::=}\;}}
+\newcommand{\state}{\ensuremath{\sigma}}
+\newcommand{\heap}{\ensuremath{\heta}}
+\newcommand{\locmap}{\ensuremath{\zeta}}
 %%% From: https://tex.stackexchange.com/questions/41357/replace-cmtt10-char32-visible-cup-space-with-something-more-gentle/41445#41445
-\newcommand     {\emptystring}{\ensuremath{\epsilon}\xspace}
-\newcommand     {\emptysymbol}{\emptystring}
-\newcommand     {\langconcat}{\ensuremath{\!\mathrel{\circ}\!}}
-\newcommand     {\kleenestar}[1]{{#1}^*}
+\newcommand{\emptystring}{\ensuremath{\epsilon}\xspace}
+\newcommand{\emptysymbol}{\emptystring}
+\newcommand{\langconcat}{\ensuremath{\!\mathrel{\circ}\!}}
+\newcommand{\kleenestar}[1]{{#1}^*}
 %%% NOTE: Change to comma if you prefer that string concatenation over 2 vertical bars
 %\newcommand  {\strconcat}{\xspace\ensuremath{,}\xspace}
-\newcommand     {\strconcat}{\ensuremath{\!\mathrel{\Vert}\!}}
-\newcommand     {\concat}{\strconcat}
+\newcommand{\strconcat}{\ensuremath{\!\mathrel{\Vert}\!}}
+\newcommand{\concat}{\strconcat}
 %%% Graphs
-\newcommand     {\pathto}{\rightsquigarrow}
-\newcommand     {\dirpath}{\pathto}
-\newcommand     {\dirpathto}{\pathto}
-\newcommand     {\undirpath}{\leftrightsquigarrow}
-\newcommand     {\undirpathto}{\undirpath}
-\newcommand     {\undirpathfrom}{\undirpath}
-\newcommand     {\walkto}{\looparrowright}
-\newcommand     {\walkfrom}{\looparrowleft}
-\newcommand     {\indeg}{\deg_{-}}
-\newcommand     {\outdeg}{\deg_{+}}
+\newcommand{\pathto}{\rightsquigarrow}
+\newcommand{\dirpath}{\pathto}
+\newcommand{\dirpathto}{\pathto}
+\newcommand{\undirpath}{\leftrightsquigarrow}
+\newcommand{\undirpathto}{\undirpath}
+\newcommand{\undirpathfrom}{\undirpath}
+\newcommand{\walkto}{\looparrowright}
+\newcommand{\walkfrom}{\looparrowleft}
+\newcommand{\indeg}{\deg_{-}}
+\newcommand{\outdeg}{\deg_{+}}
 %%% Cryptography
-\newcommand     {\secparam}{\ensuremath{\lambda}\xspace}
-\newcommand     {\crs}{\var{crs}}
-\newcommand     {\rel}[1]{\ensuremath{R_{\mathsf{#1}}}\xspace}
-\newcommand     {\com}{\var{com}}
+\newcommand{\secparam}{\ensuremath{\lambda}\xspace}
+\newcommand{\crs}{\var{crs}}
+\newcommand{\rel}[1]{\ensuremath{R_{\mathsf{#1}}}\xspace}
+\newcommand{\com}{\var{com}}
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -261,15 +273,15 @@
 %%%%%%%%%%%%%%%%%%%
 % Text shortcuts  %
 %%%%%%%%%%%%%%%%%%%
-\renewcommand   {\th}{\textsuperscript{th}\xspace}
-\newcommand     {\wrt}{\xspace{with respect to}\xspace}
-\newcommand     {\Wrt}{\xspace{With respect to}\xspace}
+\renewcommand{\th}{\textsuperscript{th}\xspace}
+\newcommand{\wrt}{\xspace{with respect to}\xspace}
+\newcommand{\Wrt}{\xspace{With respect to}\xspace}
 %%% NOTE: \wlog is a logging command and can't be redefined
-\newcommand     {\WLOG}{\xspace{without loss of generality}\xspace}
-\newcommand     {\Wlog}{\xspace{Without loss of generality}\xspace}
-\newcommand     {\str}[1]{\ifmmode{\mathstrut\text{#1}}\else\mbox{\strut#1}\fi}
-\newcommand     {\TODO}[1]{\par \noindent \textbf{\underline{TODO:}}\space#1}
-\newcommand     {\NOTE}[1]{\par \noindent \textbf{NOTE:}\space#1}
+\newcommand{\WLOG}{\xspace{without loss of generality}\xspace}
+\newcommand{\Wlog}{\xspace{Without loss of generality}\xspace}
+\newcommand{\str}[1]{\ifmmode{\mathstrut\text{#1}}\else\mbox{\strut#1}\fi}
+\newcommand{\TODO}[1]{\par \noindent \textbf{\underline{TODO:}}\space#1}
+\newcommand{\NOTE}[1]{\par \noindent \textbf{NOTE:}\space#1}
 %%% Modifies enumerate* to use 1) 2) ... by default
 \renewlist{enumerate}{enumerate}{1}
 \setlist[enumerate]{label=\arabic*)}
