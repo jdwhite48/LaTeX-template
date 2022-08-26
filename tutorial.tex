@@ -157,7 +157,7 @@ Put a \textbackslash\textbackslash\xspace or another \textbackslash{par} after a
     $$\nthroot{3}{27} = 3$$
     $$\abs{-3} = 3$$
     $$ A \iseq B$$
-    $$\Pr{[c \in C \given m \in M \land c = \alg{Encrypt}(m)]}$$
+    $$\Prob{[c \in C \given m \in M \land c = \alg{Encrypt}(m)]}$$
 
     If all instances in problem $A$ reduce to instances in problem $B$, then we say that $A \mapreducesto B$. If it is also true that $B \mapreducesfrom A$, then these problems are equivalent; that is, $A \mapequiv B$. Similar for polynomial-time reductions $A \polyreducesto B$ and log-space reductions $A \logspacereducesto B$. \\
 
@@ -171,7 +171,7 @@ Put a \textbackslash\textbackslash\xspace or another \textbackslash{par} after a
 
     %%% Most of the math macros that can conceivably be used standalone in text can also be written without being enclosed in math environment delimiters as well.
     \par There are \approx 7,000,000 humans in the world today. This statement is true (\true). (or maybe \false depending on how precise you want to be...). I am \inverse{7{,}000{,}000} of the world's population. $\approx\half$ of the world's population is male.
-    \par \abs{-1} is 1 and \nthroot{3}{27} is 3. $\Pr{[0=1]}$ is 0. The expected value is $\Exp{[1]} = 1$. The set \set{1} contains only 1, and \cset{x}{x \in A} has a condition associated with it. 5 is the 6\th number in \N. This \bigcdot is a bullet. \complement{S} is the collection of elements in the "universe" set $U$ that aren't also in $S \subseteq U$. Different notations for set complement: $\complement{S}$, $U \setminus S$, $U - S$\\
+    \par \abs{-1} is 1 and \nthroot{3}{27} is 3. $\Prob{[0=1]}$ is 0. The expected value is $\Exp_{X}[1] = 1$ and the probability density is $\Prob_{X}(x)$ with distribution variance $\Var(X)$ and covariance $\Covar(X)$. The set \set{1} contains only 1, and \cset{x}{x \in A} has a condition associated with it. 5 is the 6\th number in \N. This $A \bigcdot B$ is a bullet. \complement{S} is the collection of elements in the "universe" set $U$ that aren't also in $S \subseteq U$. Different notations for set complement: $\complement{S}$, $U \setminus S$, $U - S$\\
     \par This is a transpose of a matrix $A$: $\transpose{A}$. This is a complex conjugate transpose: $\cctranspose{A}$.
     %%% Don't think too much about this, it's meaningless garbage. I was just too lazy to think of a proper math context to use these terms in.
     \par The world holds \WLOG to everything. \Wrt the universe, this should make sense. \Wlog, everything is \str{null} \wrt our perception.
@@ -213,6 +213,69 @@ Put a \textbackslash\textbackslash\xspace or another \textbackslash{par} after a
     
 
     \par This is a directed path from $a$ to $b$: $a \pathto b$ and this is an undirected path: $a \undirpathto b$. This is a walk from $a$ to $b$: $a \walkto b$.
+
+    Kronecker delta \kron{i}{j}! Sample space \samplespace b! Disjoint union $A \cupdisjoint B$ means that $A \cup B \land A \cap B = \emptyset$. This is a vector \vec{A} (assumed $n$-by-1 column vector by default). This is the number of dimensions of a finite-dimensional vector space $V$: $\dim V$. For a sum of vector spaces, let the direct sum be $U \directsum V \gets \cset{\vec{u} + \vec{v}}{\vec{u} \in U, \vec{v} \in V, U \cap V = \set{0}}$. $A \iso B$ denotes that $A$ and $B$ are isomorphic. The nullspace/kernel of a linear map/transformation $T$ is $\nullspace T$. The norm on a real vector space $V$ is $\norm{\ignored} : V \to \reals$ (e.g., \norm{\vec{a}} and \norm{\vec{b}}; generalizes length). Any inner product on $V$ induces a norm on $V$: $$\norm{\vec{x}} = \sqrt{\innerprod{\vec{x}}{\vec{x}}}$$ $\Max \set{1,3,5} = 5$ and  $\min\set{1,3,5} = 1$. Two vectors \vec{x} and \vec{y} are orthogonal if $\innerprod{\vec{x}}{\vec{y}} = 0$: i.e., $\vec{x} \orthogonal \vec{y}$. We define the orthogonal complement of $S$, denoted $\orthotrans{S}$, as the set of all vectors in $V$ orthogonal to every element in $S$; $V = S \directsum \orthotrans{S}$ for any subspace $S \subseteq V$. A nonzero vector $\vec{x} \in \R^n$ is an eigenvector of matrix \mat{A} corresponding to eigenvalue \eigenval if $\mat{A} \vec{x} = \eigenval \vec{x}$. A trace of a square matrix is the sum of its diagonal entries AND the sum of its eigenvalues (repeated by multiplicity): $\trace \mat{A} = \sum_{i=1}^n A_{i\,i} = \sum_i \eigenval_i(\mat{A})$. The determinant is the product of a matrix \mat{A}'s eigenvalues: $\det \mat{A} = \prod_i \eigenval_i(\mat{A})$. A symmetric matric $\mat{A}$ (i.e., where $\mat{A} = \transpose{\mat{A}}$) is positive semi-definite if, for all $\vec{x} \in \R^n, \transpose{\vec{x}} \mat{A} \vec{x} \geq 0$; this is often denoted $\mat{A} \succeq 0$, and is true iff all of its eigenvalues are non-negitive.
+
+    Every matrix $\mat{A} \in \R^{m \times n}$ has a singular value decomposition (SVD) $\mat{A} = \mat{U} \mat{\Sigma} \transpose{\mat{V}}$ where $\mat{U \in \R^{m \times m}}$ and $\mat{V} \in \R^{n \times n}$ are orthogonal matrices and $\mat{\Sigma} \in \R^{m \times n}$ is a diagonal matrix of its singular values (denoted $\sv_i$): by convention, $\sv_1 \geq \sv_2 \geq \cdots \geq \sv_r > \sv_{r+1} = \cdots = \sv_{\min(m, n)} = 0$ where $r = \rank \mat{A}$. These SVD factors provide eigendecompositions for $\transpose{\mat{A}}\mat{A} = \mat{V} \transpose{\mat{\Sigma}} \mat{\Sigma} \transpose{\mat{V}}$ and $\mat{A}\transpose{\mat{A}} = \mat{U} \mat{\Sigma} \transpose{\mat{\Sigma}} \transpose{\mat{U}}$: columns of \mat{V} are eigenvectors of $\transpose{\mat{A}}\mat{A}$, columns of \mat{U} are eigenvectors of $\transpose{\mat{A}}\mat{A}$.
+
+    SVD is useful for many computations, including low-rank approximation: i.e., given some matrix, find another matrix with the same dimensions but lower rank such that the two matrices are close according to some norm.
+
+    \begin{theorem} [Eckart-Young-Mirsky theorem]
+        Let \norm{\ignored} be a unitary invariant matrix norm. Suppose $\mat{A} \in \R^{m \times n}$, where $m \geq n$, has SVD $\mat{A} = \sum_{i=1}^n \sv_i \vec{u}_i \transpose{\vec{v}_i}$. Then the best rank-$k$ approximation to \mat{A}, where $k \leq \rank(\mat{A})$, is given by:
+        $$\mat{A}_k = \sum_{i=1}^k \sv_i \vec{u}_i \transpose{\vec{v}_i}R$$
+        wherein $\norm{\mat{A} - \mat{A}_k} \leq \norm{\mat{A} - \hat{\mat{A}}}$ for any $\hat{\mat{A}} \in \R^{m \times n}$ with $\rank(\hat{\mat{A}}) \leq k$.
+    \end{theorem}
+
+    A (Moore-Penrose) pseudoinverse $\pseudoinv{\mat{A}} \in \R^{n \times m}$ exists for ANY matrix $\mat{A} \in \R^{m \times n}$, with:
+    \begin{enumerate*}
+        \item $\mat{A} \pseudoinv{\mat{A}} \mat{A} = \mat{A}$
+        \item $\pseudoinv{\mat{A}} \mat{A} \pseudoinv{\mat{A}} = \pseudoinv{\mat{A}}$
+        \item $\mat{A} \pseudoinv{\mat{A}}$ and $\pseudoinv{\mat{A}} \mat{A}$ is symmetric.
+    \end{enumerate*} If \mat{A} is invertibble, then $\pseudoinv{\mat{A}} = \multinv{\mat{A}}$; more generally, if $\mat{A} = \mat{U} \mat{\Sigma} \transpose{\mat{V}}$, then $\pseudoinv{\mat{A}} = \mat{V} \mat{\Sigma}^\dagger \transpose{\mat{U}}$
+
+    \begin{theorem}[Fundamental Theorem of Algebra]
+    If $\mat{A} \in \R^{m \times n}$, then:
+    \begin{enumerate}
+        \item $\nullspace(\mat{A}) = \orthotranspose{\range(\transpose{\mat{A}})}$
+        \item $\nullspace(\mat{A}) \directsum \range(\transpose{\mat{A}}) = \R^n$
+        \item (Rank-nullity theorem) $\underbrace{\dim \range(\mat{A})}_{\rank(\mat{A})} + \dim \nullspace(\mat{A}) = n$
+        \item If $\mat{A} = \mat{U} \mat{\Sigma} \transpose{\mat{V}}$ is the SVD of $\mat{A}$, then the columns of \mat{U} and \mat{V} form orthonormal bases for the four "fundamental subspaces of \mat{A}.
+        \begin{enumerate*}
+        \item $\range(\mat{A})$: The first $r$ columns of \mat{U}
+        \item $\range(\transpose{\mat{A}})$: The first $r$ columns of \mat{V}
+        \item $\nullspace(\transpose{\mat{A}})$: The last $m-r$ columns of \mat{U}
+        \item $\nullspace(\mat{A})$: The last $n-r$ columns of \mat{V}
+        \end{enumerate*}
+    \end{enumerate}
+    \end{theorem}
+
+    Recall the sample space \samplespace as a fixed set of outcomes $\sample \in \samplespace$. Let the event space $\eventspace \subseteq \powerset{\samplespace}$ represent a set of events $\event \in \eventspace$, i.e. each event represents a set of outcomes for a particular experiment. We can define a probability measure $\Prob : \eventspace \to \set{0,1}$ which satisfies \begin{enumerate*}
+        \item $\Prob(\samplespace) = 1$
+        \item \textbf{Countable additivity:} for any countable collection of disjoint sets $\set{A_i} \subseteq \eventspace$, $\Prob\left(\bigcup_i A_i \right) = \sum_i \Prob(A_i)$.
+    \end{enumerate*}
+    \probspace is a probability space. By Bayes' rule, $$\Prob(A \given B) \propto \Prob(A) \Prob(B \given A)$$ with prior $\Prob(A)$, posterior $\Prob(A \given B)$, and likelihood $\Prob(B \given A)$.
+
+    A random value is an uncertain quantity with an associated probability distribution over its assumed values, e.g. a measurable function $X : \samplespace \to \R$ (or codomain into any other measurable space).
+    
+    A cumulative distribution function (CDF) gives the probability that a random value is at most a certain value: $F(x) = \Prob(X \leq x)$, with $\Prob(a < X \leq b$ = $F(b) - F(a)$. A discrete random value is specified by its probability mass function (PMF) $p : X(\samplespace) \to [0,1]$ which satisfies $\sum_{x \in X(\samplespace)} p(x) = 1$, wherein $\Prob(X = x) = p(x)$. Note that there's a common abuse of notation, wherein $p(X)$ is a probability distribution of $x$ and $p(x; \theta)$ is an evaluation at the value $x \in X(\samplespace)$, parameterized by $\theta$ (if distinct). A continuous random variable has a corresponding probability density function (PDF) which satisfies $\int_{-\infty}^{\infty} p(x) dx = 1$ (NOTE: it is possible in continuous values to have $p(x) > 1$; the function $p$ does NOT itself give probabilities).
+
+    An expected value $\Exp[X]$ captures the "average" or "center" (mean) value of $X$, and is defined as $\Exp[X] = \sum_{x \in X(\samplespace)} x \cdot p(x)$ (discrete) or $\Exp[X] = \int_{-\infty}^{\infty} x p(x) dx$ (continuous). Importantly, the expected value is linear (even if $X$ is not independent!), i.e.: $\Exp\left[\sum_{i=1}^n \alpha_i X_i + \beta \right] = \sum_{i=1}^n \alpha_i \Exp[X_i] + \beta$. Furthermore, if $X$ is independent, the product rule also holes: $\Exp\left[\prod_{i=1}^n X_i\right] = \prod_{i=1}^n \Exp[X_i]$. Expectation applies entry-wise in a vector.
+
+    Variance is a measure of the "spread" around the center of a distribution, defined by $\Var(X) = \Exp\left[(X-\Exp[X])^2\right] = \Exp[X^2] - \Exp[X]^2$. It is not linear, but: $\Var(\alpha X + \beta) = \alpha^2 \Var(X)$ (multiplicative squared, additive dissapear). Furthermore, if all $X_1, \ldots, X_n$ are uncorrelated, then $\Var(X_1 + \cdots + X_n) = \Var(X_1) + \cdots + \Var(X_n)$. However, if we want the same units as the random variable $X$ itself, use its standard deviation $\sd = \sqrt{\Var(X)}$.
+
+    Covariance is a measure of the linear relationship between two variables, say $X$ and $Y$: $\Covar(X,Y) = \Exp[(X - \Exp[X])(Y - \Exp[Y])]$ where the outer expectation is over the joint distribution of $X$ and $Y$. By linearity of expectation: $\Covar(X, Y) = \Exp[XY] - \Exp[X]\Exp[Y]$. Covariance is also bilinear:
+    \begin{align*}
+    \Covar(\alpha X + \beta Y, Z) &= \alpha\Covar(X, Z) + \beta\Covar(Y,Z)\\
+    \Covar(X, \alpha Y + \beta Z) &= \alpha\Covar(X, Y) + \beta\Covar(Y,Z)
+    \end{align*}
+
+    Correlation is a normalization of covariance, also measuring the linear relationship between variables but ranging between $[-1, 1]$:
+    $$\corr(X,Y) = \frac{\Covar(X,Y)}{\sqrt{\Var(X)\Var(Y)}}$$. $\Covar(X,Y) = 0 \implies \corr(X,Y) = 0$, i.e. that $X$ and $Y$ are uncorrelated. If two variables are independent then they are uncorrelated, but the converse is not necessarily true. Furthermore, covariance becomes a matrix \covarmat with $\covarmat_{ij} = \Covar(X_i, X_j)$. Since covariance is symmetric ($\Covar(X_i, X_j) = \Covar(X_j, X_i)$), this makes the matrix itself symmetric (and is also positive semi-definite). The inverse of a covariance matrix $\inverse{\covarmat}$ is a precision matrix.
+
+    Maximum likeliohood estimation (MLE) is a common way to fit parameters, "explaining" the data by maximizing probability/density of the data as a function of the parameters, i.e. $\hat{\theta}_{MLE} = \operatorname{arg max}_\theta \likelihood(\theta)$, where $\likelihood(\theta) = p(x_1, \ldots, x_n; \theta)$ (against the observations); if $X_1, \ldots, X_n$ are iid, then $\ldots = \prod_{i=1}^n p(x_i; \theta)$. We can convert this to logarithms for convenience (since positive probabilities and monotonically increasing $\log$):
+    $$\log \likelihood(\theta) = \sum_{\i=1}^n \log p(x_i; \theta)$$
+    Then, solve maximum likelihood estimator for $\theta$.
+
 \end{solution}
 
 \end{document}

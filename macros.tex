@@ -41,29 +41,58 @@
 %\AtBeginDocument{\setlength{\parindent}{15pt}}     % Re-enable \parindent as default (equiv. spacing for 11pt) even if parskip imported
 \newcommand{\forceindent}{\leavevmode{\parindent=15pt\indent}}
 
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
 %%%%%%%%%%%%%%%%%%%
 % Math macros     %
 %%%%%%%%%%%%%%%%%%%
 
 %%% General Arithmetic
 \newcommand{\nthroot}[2]{\ensuremath{\sqrt[\leftroot{-1}\uproot{1}\scriptstyle #1]{#2}}}
-\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
-\newcommand{\inverse}[1]{\ensuremath{\frac{1}{#1}}\xspace}
-\newcommand{\half}{\inverse{2}}
-\newcommand{\third}{\inverse{3}}
-\newcommand{\fourth}{\inverse{4}}
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}\xspace}
+\newcommand{\norm}[1]{\ensuremath{\left\lVert #1 \right\rVert}\xspace}
+\newcommand{\innerprod}[2]{\ensuremath{\left\langle #1,#2 \right\rangle}\xspace}
+\newcommand{\fracinv}[1]{\ensuremath{\frac{1}{#1}}\xspace}
+\newcommand{\half}{\fracinv{2}}
+\newcommand{\third}{\fracinv{3}}
+\newcommand{\fourth}{\fracinv{4}}
+\newcommand{\addinv}[1]{\ensuremath{-{#1}}\xspace}
+\newcommand{\pseudoinv}[1]{\ensuremath{{#1}^{\!+}}\xspace}
+\newcommand{\multinv}[1]{\ensuremath{{#1}^{-1}}\xspace}
+\newcommand{\inverse}[1]{\multinv{#1}}
+\newcommand{\kron}[2]{\ensuremath{\delta_{#1\,#2}}\xspace}
 %\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
 %\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 
 
-%%% Matrices
-\newcommand{\transpose}[1]{\ensuremath{{#1}^\intercal}\xspace}
+%%% Linear Algebra
+% NOTE: Kernel and nullspace are equivalent in linear algebra, but not in other domains (e.g., machine learning). If both Math and CS are relevant, use nullspace.
+%\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullspace}{null}
+%\DeclareMathOperator{\nullspace}{\Ker}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\range}{range}
+\newcommand{\directsum}{\mathbin{\oplus}}
+\newcommand{\cupdot}{\mathbin{\mathaccent\cdot\cup}}
+%\newcommand{\cupdisjoint}{\sqcup}
+\newcommand{\cupdisjoint}{\cupdot}
+\newcommand{\orthogonal}{\mathbin{\bot}}
+\newcommand{\transpose}[1]{\ensuremath{{#1}^\top}\xspace}
 \newcommand{\trans}[1]{\transpose{#1}}
+\newcommand{\orthotranspose}[1]{\ensuremath{{#1}^\bot}\xspace}
+\newcommand{\orthotrans}[1]{\orthotranspose{#1}}
 %%% Complex Conjugate transpose -- ^* or ^H for Linear Algebra, dagger for quantum mechanics
-\newcommand{\cctranspose}[1]{\ensuremath{{#1}^*}\xspace}
-%\newcommand     {\cctranspose}[1]{\ensuremath{{#1}^H}\xspace}
-%\newcommand     {\cctranspose}[1]{\ensuremath{{#1}^\dagger}\xspace}
+%\newcommand{\cctranspose}[1]{\ensuremath{{#1}^*}\xspace}
+%\newcommand{\cctranspose}[1]{\ensuremath{{#1}^H}\xspace}
+\newcommand{\cctranspose}[1]{\ensuremath{{#1}^\dagger}\xspace}
 \newcommand{\cctrans}[1]{\cctranspose{#1}}
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}\xspace}
+%\renewcommand{\vec}[1]{\ensuremath{\overrightarrow{#1}}}
+\newcommand{\mat}[1]{\ensuremath{\mathbf{#1}}\xspace}
+\newcommand{\eigenval}{\ensuremath{\lambda}\xspace}
+\newcommand{\sv}{\ensuremath{\sigma}\xspace}
 
 
 %%% Groups, Fields, and Rings
@@ -84,13 +113,13 @@
 
 \newcommand{\real}{\ensuremath{\mathbb{R}}\xspace}
 \newcommand{\reals}{\real}
-%\newcommand{\R}{\real}
+\newcommand{\R}{\real}
 
 \newcommand{\complex}{\ensuremath{\mathbb{C}}\xspace}
-%\newcommand{\C}{\complex}
+\newcommand{\C}{\complex}
 
 \newcommand{\field}{\ensuremath{\mathbb{F}}\xspace}
-%\newcommand{\F}{\field}
+\newcommand{\F}{\field}
 \newcommand{\ring}{\ensuremath{\mathcal{R}}\xspace}
 \newcommand{\rng}{\ring}
 
@@ -101,29 +130,31 @@
 \newcommand{\powerset}[1]{\ensuremath{\mathcal{P}(#1)}\xspace}
 \newcommand{\set}[1]{\ensuremath{\left\{ #1 \right\}}\xspace}
 %%% NOTE: Change if you prefer colon or vertical bar (\mid) for suchthat
-\newcommand{\suchthat}{\xspace:\xspace}
-%\newcommand{\suchthat}{\xspace\mid\xspace}
+%\newcommand{\suchthat}{\mathbin{:}}
+\newcommand{\suchthat}{\mathbin{\mid}}
 \newcommand{\given}{\suchthat}
 %%% Prevents overloading strikethrough macro if the document imports soul package
 \ifdefined\st\else\newcommand{\st}{\suchthat}\fi
 \newcommand{\cset}[2]{\set{#1 \suchthat #2}}  % a conditional notation to define sets
 \newcommand{\lset}[2]{\set{#1,\ldots,#2}} % set {from,...,to}
 \renewcommand{\complement}[1]{\ensuremath{\overline{#1}}}
-%%% Logic
-\newcommand{\true}{\var{T}}
-\newcommand{\false}{\var{F}}
-\newcommand{\boolset}{\set{\true,\false}}
-\renewcommand{\implies}{ \longrightarrow }
+\newcommand{\univset}{\ensuremath{U}\xspace}
+
 %%% Custom functions
 
 %%% Custom operators
-\newcommand{\bigcdot}{\ensuremath{\bullet}\xspace}
+\newcommand{\bigcdot}{\mathbin{\bullet}}
+\newcommand{\iso}{\mathbin{\cong}}
+\newcommand{\grad}{\ensuremath{\nabla}}
+%\newcommand{\possemidef}{\mathbin{\succeq}}
+%\newcommand{\posdef}{\mathbin{\succ}}
 %%% Custom equivalence Relations
 \renewcommand{\approx}{\raise.17ex\hbox{\ensuremath{\scriptstyle\sim}}}
 %%% Relations-checking operators
 \newcommand{\iseq}{\overset{?}{=}}
 \newcommand{\isequiv}{\overset{?}{\equiv}}
 \newcommand{\iscong}{\overset{?}{\cong}}
+\newcommand{\isiso}{\overset{?}{\iso}}
 \newcommand{\isapprox}{\overset{?}{\approx}}
 \newcommand{\issim}{\overset{?}{\isapprox}}
 \newcommand{\issimeq}{\overset{?}{\simeq}}
@@ -140,17 +171,43 @@
 \newcommand{\ispreceq}{\overset{?}{\preceq}}
 \newcommand{\issucc}{\overset{?}{\succ}}
 \newcommand{\issucceq}{\overset{?}{\succeq}}
+%\newcommand{\isposdef}{\overset{?}{\posdef}}
+%\newcommand{\ispossemidef}{\overset{?}{\possemidef}}
 \newcommand{\ispropto}{\overset{?}{\propto}}
 \newcommand{\isin}{\overset{?}{\in}}
 
 
 %%% Statistics
-%\renewcommand   {\Pr}[1]{\ensuremath{\mbox{Pr}\left[#1\right]}}
+% NOTE: default for \Pr is Pr
+%\DeclareMathOperator{\Prob}{P}
 % NOTE: Sometimes people like to use regular E instead of Blackboard Bold
-%\DeclareMathOperator*{\Exp}{\ensuremath{E}}
-\DeclareMathOperator*{\Exp}{\ensuremath{\mathbb{E}}}
+\DeclareMathOperator{\Exp}{\mathbb{E}}
+%\DeclareMathOperator{\Exp}{E}
+% NOTE: \Pr already exists and is normalscript math operator "Pr". I don't like that one.
+\DeclareMathOperator{\Prob}{\mathbb{P}}
+%\DeclareMathOperator{\Prob}{P}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Covar}{Cov}
+\DeclareMathOperator*{\Max}{\max}
+\DeclareMathOperator*{\Min}{\min}
+% NOTE: This is the same thing as the Universal Set
+\newcommand{\samplespace}{\ensuremath{\Omega}\xspace}
+\newcommand{\eventspace}{\ensuremath{\mathcal{F}}\xspace}
+\newcommand{\probspace}{\ensuremath{(\samplespace, \eventspace, \Prob)}\xspace}
+\newcommand{\sample}{\ensuremath{\omega}\xspace}
+\newcommand{\event}{\ensuremath{E}\xspace}
+\newcommand{\cdf}{\ensuremath{F}\xspace}
+% NOTE: Technically this is pdf in continuous land but meh
+\newcommand{\pmf}{\ensuremath{p}\xspace}
+% NOTE: This is likely to conflict (both in macro and notation) with other things, e.g. digital signatures or state.
+\newcommand{\sd}{\ensuremath{\sigma}\xspace}
+%\newcommand{\sd}{\ensuremath{\var{sd}}\xspace}
+%\newcommand{\corr}{\ensuremath{\rho}\xspace}
+\newcommand{\corr}{\ensuremath{r}\xspace}
+\newcommand{\covarmat}{\ensuremath{\Sigma}\xspace}
+\newcommand{\likelihood}{\ensuremath{\mathcal{L}}\xspace}
 %%% Calculus
-\newcommand{\approaches}{\rightarrow}
+\newcommand{\approaches}{\mathbin{\rightarrow}}
 
 %%%%%%%%%%%%%%%%%%%
 % CS Macros       %
@@ -159,6 +216,13 @@
 \newcommand{\alg}[1]{\ensuremath{\mathsf{#1}}\xspace}
 \newcommand{\cmd}[1]{\texttt{#1}\xspace}
 \newcommand{\var}[1]{\ensuremath{\mathsf{#1}}\xspace}
+%\newcommand{\true}{\var{T}}
+%\newcommand{\false}{\var{F}}
+%\newcommand{\boolset}{\set{\true,\false}}
+\newcommand{\true}{1}
+\newcommand{\false}{0}
+\newcommand{\boolset}{\bitset}
+\renewcommand{\implies}{\mathbin{\longrightarrow}}
 \newcommand{\bitset}{\set{0,1}}
 \newcommand{\bitsset}[1][*]{\ensuremath{\bitset^{#1}}\xspace}
 \newcommand{\addeq}{\ensuremath{+=}\xspace}
@@ -167,6 +231,11 @@
 \newcommand{\diveq}{\ensuremath{/=}\xspace}
 \renewcommand{\gets}{\coloneqq}
 \newcommand{\assigneq}{\gets}
+\newcommand{\nil}{\ensuremath{\var{nil}}\xspace}
+\newcommand{\error}{\ensuremath{\bot}\xspace}
+\newcommand{\ignored}{{\ensuremath{\,\cdot\,}}}
+\newcommand{\codecomment}[1]{{\footnotesize // #1}}
+\newcommand{\varlist}[1]{\ensuremath{\overline{#1}}\xspace}
 
 %%% Complexity Theory
 \newcommand{\mapreducesto}{\leq_m}
@@ -193,43 +262,53 @@
 }
 \newcommand{\desc}[1]{\ensuremath{\left\langle #1 \right\rangle}\xspace}
 %%% Formal Syntax + Grammars + Languages
-\newcommand{\derives}{\ensuremath{\mathrel{\rightarrow}}}
+\newcommand{\derives}{\mathbin{\rightarrow}}
 \newcommand{\reduces}{\derives}
-\newcommand{\derivesto}[1][*]{\ensuremath{\mathrel{\overset{#1}{\rightarrow}}}}
+\newcommand{\derivesto}[1][*]{\mathbin{\overset{#1}{\rightarrow}}}
 \newcommand{\reducesto}{\derivesto}
-\newcommand{\partreducesto}{\rightharpoonup}
-\newcommand{\evaluatesto}{\ensuremath{\mathrel{\Downarrow}}}
-\newcommand{\subtypeof}{\ensuremath{\!\mathrel{<:}\!}}
-\newcommand{\assumedby}{\vdash}
-\newcommand{\syntaxeq}{\ensuremath{\,\mathrel{::=}\;}}
-\newcommand{\state}{\ensuremath{\sigma}}
-\newcommand{\heap}{\ensuremath{\heta}}
-\newcommand{\locmap}{\ensuremath{\zeta}}
+\newcommand{\partreducesto}{\mathbin{\rightharpoonup}}
+\newcommand{\evaluatesto}{\mathbin{\Downarrow}}
+\newcommand{\subtypeof}{\mathbin{<:}}
+\newcommand{\assumedby}{\mathbin{\vdash}}
+\newcommand{\syntaxeq}{\mathbin{::=}}
+\newcommand{\state}{\ensuremath{\sigma}\xspace}
+\newcommand{\heap}{\ensuremath{\heta}\xspace}
+\newcommand{\locmap}{\ensuremath{\zeta}\xspace}
 %%% From: https://tex.stackexchange.com/questions/41357/replace-cmtt10-char32-visible-cup-space-with-something-more-gentle/41445#41445
 \newcommand{\emptystring}{\ensuremath{\epsilon}\xspace}
 \newcommand{\emptysymbol}{\emptystring}
-\newcommand{\langconcat}{\ensuremath{\!\mathrel{\circ}\!}}
-\newcommand{\kleenestar}[1]{{#1}^*}
-%%% NOTE: Change to comma if you prefer that string concatenation over 2 vertical bars
-%\newcommand  {\strconcat}{\xspace\ensuremath{,}\xspace}
-\newcommand{\strconcat}{\ensuremath{\!\mathrel{\Vert}\!}}
+\newcommand{\langconcat}{\mathbin{\circ}}
+\newcommand{\any}[1]{{#1}^*}
+\newcommand{\kleenestar}[1]{\any{#1}}
+\newcommand{\strconcat}{\mathbin{\Vert}}
 \newcommand{\concat}{\strconcat}
 %%% Graphs
-\newcommand{\pathto}{\rightsquigarrow}
+\newcommand{\pathto}{\mathbin{\rightsquigarrow}}
 \newcommand{\dirpath}{\pathto}
 \newcommand{\dirpathto}{\pathto}
-\newcommand{\undirpath}{\leftrightsquigarrow}
+\newcommand{\undirpath}{\mathbin{\leftrightsquigarrow}}
 \newcommand{\undirpathto}{\undirpath}
 \newcommand{\undirpathfrom}{\undirpath}
-\newcommand{\walkto}{\looparrowright}
-\newcommand{\walkfrom}{\looparrowleft}
+\newcommand{\walkto}{\mathbin{\looparrowright}}
+\newcommand{\walkfrom}{\mathbin{\looparrowleft}}
 \newcommand{\indeg}{\deg_{-}}
 \newcommand{\outdeg}{\deg_{+}}
 %%% Cryptography
 \newcommand{\secparam}{\ensuremath{\lambda}\xspace}
 \newcommand{\crs}{\var{crs}}
 \newcommand{\rel}[1]{\ensuremath{R_{\mathsf{#1}}}\xspace}
-\newcommand{\com}{\var{com}}
+% TODO: Think of something better
+\newcommand{\com}{\ensuremath{\var{com}}\xspace}
+\newcommand{\sign}{\ensuremath{\sigma}\xspace}
+\newcommand{\hashfn}{\ensuremath{\mathsf{H}}\xspace}
+\newcommand{\pf}{\ensuremath{\pi}\xspace}
+\newcommand{\user}{\ensuremath{U}\xspace}
+\newcommand{\verifier}{\ensuremath{V}\xspace}
+\newcommand{\simulator}{\ensuremath{\mathcal{S}}\xspace}
+\newcommand{\adversary}{\ensuremath{\mathcal{A}}\xspace}
+\newcommand{\aux}{\ensuremath{\var{aux}}\xspace}
+\newcommand{\context}{\ensuremath{\var{ctx}}\xspace}
+\newcommand{\pairingparams}{\ensuremath{\var{pp}}\xspace}
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -270,6 +349,10 @@
 \ifdefined\fact\else\newtheorem*{fact}{Fact}\fi
 \ifdefined\remark\else\newtheorem*{remark}{Remark}\fi
 
+% Modifies the enumerate* to use 1) 2) 3) by default
+\newlist{enumerate*}{enumerate*}{1}
+\setlist[enumerate*]{label=\arabic*)}
+
 %%%%%%%%%%%%%%%%%%%
 % Text shortcuts  %
 %%%%%%%%%%%%%%%%%%%
@@ -282,6 +365,3 @@
 \newcommand{\str}[1]{\ifmmode{\mathstrut\text{#1}}\else\mbox{\strut#1}\fi}
 \newcommand{\TODO}[1]{\par \noindent \textbf{\underline{TODO:}}\space#1}
 \newcommand{\NOTE}[1]{\par \noindent \textbf{NOTE:}\space#1}
-%%% Modifies enumerate* to use 1) 2) ... by default
-\renewlist{enumerate}{enumerate}{1}
-\setlist[enumerate]{label=\arabic*)}
